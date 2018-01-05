@@ -34,13 +34,13 @@ p {
 }
 
 .btn:hover {
-	backgorund: #eaeaea;
+	background: #eaeaea;
 	color: #333;
 }
 
 /* Header */
 #header {
-	background-image: url('./img/beach.jpg');
+	background-image: url('./img/mountain.jpg');
 	background-size: cover;
 	background-position: center;
 	height: 100vh;
