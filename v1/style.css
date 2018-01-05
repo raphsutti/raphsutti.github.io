@@ -81,7 +81,7 @@ i:hover {
 	grid-row-gap: 2em;
 }
 
-.grid > div {
+.block {
 	background-color: #045BB6;
 	color: white;
 	border-radius: 10px;
@@ -96,7 +96,7 @@ i:hover {
 	color: white
 }*/
 
-.grid > div > img {
+.project {
 	max-width: 100%;
     max-height: 100%;
     object-fit: cover;
@@ -163,6 +163,10 @@ i:hover {
 	top: 33%;
 }
 /*End shade block*/
+
+a > h6 {
+	color: white;
+}
 
 .contact {
 	margin: 100px 0;

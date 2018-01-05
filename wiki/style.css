@@ -1,0 +1,43 @@
+body {
+	text-align: center;
+}
+
+#title {
+	padding: 30px;
+	/*font-family: 'Montserrat', sans-serif;*/
+    /*font-family: 'Nunito', sans-serif;*/
+    /*font-family: 'Roboto', sans-serif;*/
+    /*font-family: 'Roboto Slab', serif;*/
+    font-family: 'Raleway', sans-serif;/
+    /*font-family: 'Lobster', cursive;*/
+    /*font-family: 'Stardos Stencil', cursive;*/
+    /*font-size: 150px;*/
+}
+
+.searchbar {
+	align-items: middle;
+}
+
+#wikiSearch {
+	border-radius: 10px;
+	border: 2px solid #084BE2;
+	height: 40px;
+	/*margin: 10px;*/
+}
+
+.btn {
+	border-radius: 10px;
+	margin: 10px 5px;
+}
+
+#searchbtn {
+	margin: 0 0 0 10px;
+}
+
+#output {
+	list-style: none;
+}
+
+li {
+	margin: 30px 0 0 0;
+}

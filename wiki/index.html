@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Wikipedia Viewer</title>
+	<link rel="stylesheet" href="style.css">
+	
+	<!-- Google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Nunito|Raleway|Roboto|Roboto+Slab|Lobster|Stardos+Stencil" rel="stylesheet">
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+	<!-- javascript.js -->
+	<script src="javascript.js"></script>
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+	<!-- jquery (& ajax)-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Live reload -->
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</head>
+<body>
+	<div class="page-header text-center">
+		<h1 id="title">Wikipedia Viewer</h1>
+	</div>
+	<hr class="my-4">
+	<div class="search">
+		<p class="lead" id="box1">Today you will learn..</p>
+		<div class="container">
+			<input type="text" id="wikiSearch" class="text-center">
+			<div class="buttons">
+				<button id="searchbtn" class="btn btn-primary">Search</button>
+				<a href="https://en.wikipedia.org/wiki/Special:Random" target="blank"><button id="randombtn" class="btn btn-warning">Random</button></a>
+			</div>
+		</div>
+	<hr class="my-4">	
+	</div>
+	<div class="result">
+		<ul id="output">
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

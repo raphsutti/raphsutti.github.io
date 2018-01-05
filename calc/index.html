@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Calculator</title>
+	
+	<!-- Google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Alegreya|Anton|Bungee|Cabin|Catamaran|Exo+2|Indie+Flower|PT+Sans+Narrow|Pangolin|Raleway|Titillium+Web|Yanone+Kaffeesatz" rel="stylesheet">
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	
+	<!-- CSS styling -->
+	<link rel="stylesheet" href="style.css">
+
+	<!-- javascript.js -->
+	<script src="javascript.js"></script>
+	<!-- jquery (& ajax)-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Live reload -->
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</head>
+<body>
+	<div class="text-center">
+		<h1>JavaScript Calculator</h1>
+		<h2>By: Raph Sutti 2017</h2>
+	</div>
+	<div id="calcOutput">
+		<span id="steps">0</span>
+		<hr/>
+	</div>
+	<div class="text-center" id="calculator">
+		<a href="#" class="btn btn-danger" id="deleteAll">AC</a>
+		<a href="#" class="btn btn-danger" id="backOne">CE</a>
+		<a href="#" class="btn btn-primary" id="/">/</a>
+		<a href="#" class="btn btn-primary" id="*">*</a>
+		<br/>
+		<a href="#" class="btn btn-primary" id="7">7</a>
+		<a href="#" class="btn btn-primary" id="8">8</a>
+		<a href="#" class="btn btn-primary" id="9">9</a>
+		<a href="#" class="btn btn-primary" id="-">-</a>
+		<br/>
+		<a href="#" class="btn btn-primary" id="4">4</a>
+		<a href="#" class="btn btn-primary" id="5">5</a>
+		<a href="#" class="btn btn-primary" id="6">6</a>
+		<a href="#" class="btn btn-primary" id="+">+</a>
+		<br/>
+		<a href="#" class="btn btn-primary" id="1">1</a>
+		<a href="#" class="btn btn-primary" id="2">2</a>
+		<a href="#" class="btn btn-primary" id="3">3</a>
+		<a href="#" class="btn btn-primary" id=".">.</a>
+		<br/>
+		<a href="#" class="btn btn-primary bigButton" id="0">0</a>
+		<a href="#" class="btn btn-primary bigButton" id="total">=</a>
+	</div>
+</body>
+</html>

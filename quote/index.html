@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quote Generator</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+	 <link rel="stylesheet" href="style.CSS">
+	 <link rel="script" href="javascript.js"/>
+	 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	 
+</head>
+<body onload="startTime(); startDate()">
+	<nav class="nav bar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header"><a href="#" class="navbar-brand"></a></div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div id="date"></div>
+		<div id="display"></div>
+		<div id="content">
+
+	<h1 id="quoteTitle" class="text-light">The Quote Generator</h1>
+
+	<div>
+	<button id="gen" onclick="newQuote()">New Quote</button>
+</div>
+	
+	<blockquote class="blockquote" id="blockquote"></blockquote><footer class="blockquote-footer" id="blockquotefooter"></footer>
+
+	<div id="tweet">	
+	<a class="twitter-share-button" href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+
+	</div>
+	<script src="javascript.js"></script>
+
+</div>
+</div>
+
+</body>
+</html>
