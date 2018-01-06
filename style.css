@@ -154,7 +154,7 @@ p {
 }
 
 /* Tablet version */
-@media(min-width: 736px) {
+@media(min-width: 800px) {
 	.grid {
 	margin: 0 5%;
 	display: grid;
