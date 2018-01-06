@@ -200,7 +200,7 @@ a > img:hover {
 }
 
 /* Tablet version */
-@media only screen and (min-width: 736px) {
+@media only screen and (min-width: 900px) {
 	.grid {
 	margin: 0 5%;
 	display: grid;
@@ -212,6 +212,7 @@ a > img:hover {
 	". . ."
 	"q w c"
 	"we po t";
+	}
 }
 
 /* Desktop version */
@@ -227,4 +228,5 @@ a > img:hover {
 	". . . . ."
 	". q w c ."
 	". we po t .";
+	}
 }
