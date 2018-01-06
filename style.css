@@ -29,19 +29,9 @@ p {
 	font-size: 1em;
 }
 
-.btn {
-	display: inline-block;
-	background: #333;
-	color: #fff;
-	text-decoration: none;
-	padding: 0.5em 1em;
-	border: 1px solid #666;
-	margin: 0.25em 0;
-}
-
-.btn:hover {
-	background: #eaeaea;
-	color: #333;
+a > img:hover {
+	opacity: 0.7;
+	box-shadow: none;
 }
 
 .shadow {
@@ -209,7 +199,7 @@ p {
 }
 
 /* Tablet version */
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 736px) {
 	.grid {
 	margin: 0 5%;
 	display: grid;
