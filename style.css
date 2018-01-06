@@ -55,7 +55,7 @@ a > img:hover {
 }
 
 #header h1 {
-	font-size: 6em;
+	font-size: 3em;
 	line-height: 1.2;
 	font-family: Oswald;
 	font-weight: bold;
@@ -64,7 +64,7 @@ a > img:hover {
 }
 
 #header h2 {
-	font-size: 2.5em;
+	font-size: 1.5em;
 	font-family: Yanone Kaffeesatz;
 	color: #DED9D9;
 	margin: 0;
@@ -76,8 +76,8 @@ a > img:hover {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-auto-rows: minmax(25px, auto);
-	grid-gap: 2.5em;
-	grid-row-gap: 3em;
+	grid-gap: 1.5em;
+	grid-row-gap: 2em;
 	grid-template-areas:
 	"p l"
 	"a a"
@@ -213,6 +213,22 @@ a > img:hover {
 	"q w c"
 	"we po t";
 	}
+
+	#header h1 {
+	font-size: 5em;
+	line-height: 1.2;
+	font-family: Oswald;
+	font-weight: bold;
+	color: #FFF;
+	margin: 0.5em 0;
+	}
+
+	#header h2 {
+		font-size: 2.5em;
+		font-family: Yanone Kaffeesatz;
+		color: #DED9D9;
+		margin: 0;
+	}
 }
 
 /* Desktop version */
@@ -228,5 +244,21 @@ a > img:hover {
 	". . . . ."
 	". q w c ."
 	". we po t .";
+	}
+
+	#header h1 {
+	font-size: 6em;
+	line-height: 1.2;
+	font-family: Oswald;
+	font-weight: bold;
+	color: #FFF;
+	margin: 0.5em 0;
+	}
+
+	#header h2 {
+		font-size: 3em;
+		font-family: Yanone Kaffeesatz;
+		color: #DED9D9;
+		margin: 0;
 	}
 }
