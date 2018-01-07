@@ -102,6 +102,7 @@ li > a:hover {
 	"t q"
 	"w c"
 	"po we"
+	"co co"
 	". .";
 }
 
@@ -148,8 +149,6 @@ li > a:hover {
 	font-family: Oswald;
 	font-size: 3em;
 	font-weight: bold;
-
-
 }
 
 /* Profile pic LinkedIn */
@@ -227,6 +226,30 @@ li > a:hover {
 	border: black 1px solid;
 }
 
+/* Contacts Banner */
+#contact {
+	grid-area: co;
+	border: black 1px solid;
+	background-image: url('./img/laptop.jpg');
+	background-size: cover;
+	background-position: center;
+	height: 95vh;
+	opacity: 1;
+	text-align: center;
+	line-height: 4em;
+	color: #fff;
+	font-family: Oswald;
+	font-size: 3em;
+	font-weight: bold;
+}
+
+.contact2, .contact2 > ul, .contact2 > li {
+	list-style-type: none;
+	display: inline;
+	margin-right: 15px;
+	margin-top: 15px;
+}
+
 /* Footer */
 #footer {
 	margin: 30px 0;
@@ -246,7 +269,8 @@ li > a:hover {
 	". . ."
 	"pb pb pb"
 	"q w c"
-	"we po t";
+	"we po t"
+	"co co co";
 	}
 
 	#header h1 {
@@ -269,6 +293,11 @@ li > a:hover {
 		font-size: 5em;
 		line-height: 5em;
 	}
+
+	#contact {
+		font-size: 3em;
+		line-height: 3.5em;
+	}
 }
 
 /* Desktop version */
@@ -284,7 +313,8 @@ li > a:hover {
 	". . . . ."
 	"pb pb pb pb pb"
 	". q w c ."
-	". we po t .";
+	". we po t ."
+	"co co co co co";
 	}
 
 	#header h1 {
@@ -305,6 +335,11 @@ li > a:hover {
 
 	#project-banner {
 		font-size: 7em;
+		line-height: 3.5em;
+	}
+
+	#contact {
+		font-size: 3em;
 		line-height: 3.5em;
 	}
 }
