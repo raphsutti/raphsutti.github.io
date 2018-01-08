@@ -149,7 +149,7 @@ li > a:hover {
 	background-image: url('./img/city.jpg');
 	background-size: cover;
 	background-position: center;
-	height: 100vh;
+	/*height: 100vh;*/
 	text-align: center;
 	line-height: 8em;
 	color: #fff;
@@ -157,6 +157,7 @@ li > a:hover {
 	font-size: 3em;
 	font-weight: bold;
 	/*background-attachment: scroll;*/
+	background-attachment: fixed;
 }
 
 /* Profile pic LinkedIn */
@@ -241,7 +242,7 @@ li > a:hover {
 	background-image: url('./img/laptop.jpg');
 	background-size: cover;
 	background-position: center;
-	height: 100vh;
+	/*height: 100vh;*/
 	opacity: 1;
 	text-align: center;
 	line-height: 5em;
