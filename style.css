@@ -67,6 +67,9 @@ li > a:hover {
 	padding: 0 1em;
 	color: #fff;
 	margin-bottom: 3em;
+	
+	/* fixed background scrolling*/
+	background-attachment: fixed;
 }
 
 #header h1 {
@@ -114,6 +117,7 @@ li > a:hover {
 
 #profile img {
 	border-radius: 30px;
+
 	/*box-shadow: 10px 10px #424141;*/
 }
 
@@ -149,6 +153,7 @@ li > a:hover {
 	font-family: Oswald;
 	font-size: 3em;
 	font-weight: bold;
+	background-attachment: fixed;
 }
 
 /* Profile pic LinkedIn */
@@ -241,6 +246,7 @@ li > a:hover {
 	font-family: Oswald;
 	font-size: 2em;
 	font-weight: bold;
+	background-attachment: fixed;
 }
 
 .contact2, .contact2 > ul, .contact2 > li {
@@ -248,6 +254,7 @@ li > a:hover {
 	display: inline;
 	margin-right: 15px;
 	margin-top: 15px;
+	font-size: 0.8em;
 }
 
 /* Footer */
