@@ -7,6 +7,8 @@ body {
 	color: #5C5C5C;
 	line-height: 1.6;
 	background: #ECECEC;
+	height: 95vh;
+	max-height: 95vh;
 }
 
 img {
