@@ -60,7 +60,7 @@ li > a:hover {
 	background-image: url('./img/mountain.jpg');
 	background-size: cover;
 	background-position: center;
-	height: 100vh;
+	height: 30em;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -72,6 +72,7 @@ li > a:hover {
 	
 	/* fixed background scrolling*/
 	/*background-attachment: scroll;*/
+	background-attachment: fixed;
 }
 
 #header h1 {
@@ -148,7 +149,7 @@ li > a:hover {
 	background-image: url('./img/city.jpg');
 	background-size: cover;
 	background-position: center;
-	height: 95vh;
+	height: 100vh;
 	text-align: center;
 	line-height: 8em;
 	color: #fff;
@@ -240,7 +241,7 @@ li > a:hover {
 	background-image: url('./img/laptop.jpg');
 	background-size: cover;
 	background-position: center;
-	height: 95vh;
+	height: 100vh;
 	opacity: 1;
 	text-align: center;
 	line-height: 5em;
@@ -309,7 +310,7 @@ li > a:hover {
 	}
 
 	#header, #project-banner, #contact {
-		/*background-attachment: fixed;*/
+		background-attachment: fixed;
 	}
 }
 
@@ -357,6 +358,6 @@ li > a:hover {
 	}
 
 	#header, #project-banner, #contact {
-		/*background-attachment: fixed;*/
+		background-attachment: fixed;
 	}
 }
