@@ -264,7 +264,7 @@ li > a:hover {
 }
 
 /* Tablet version */
-@media only screen and (min-width: 736px) and (max-width: 1079px) {
+@media only screen and (min-width: 740px) and (max-width: 1079px) {
 	.grid {
 	/*margin: 0 5%;*/
 	display: grid;
