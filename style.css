@@ -108,8 +108,7 @@ li > a:hover {
 	"t q"
 	"w c"
 	"po we"
-	"co co"
-	". .";
+	"co co";
 }
 
 /* Profile pic */
@@ -251,6 +250,7 @@ li > a:hover {
 	font-size: 2em;
 	font-weight: bold;
 	/*background-attachment: scroll;*/
+	background-attachment: fixed;
 }
 
 .contact2, .contact2 > ul, .contact2 > li {
