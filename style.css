@@ -309,7 +309,7 @@ li > a:hover {
 	}
 
 	#header, #project-banner, #contact {
-		background-attachment: fixed;
+		/*background-attachment: fixed;*/
 	}
 }
 
@@ -357,6 +357,6 @@ li > a:hover {
 	}
 
 	#header, #project-banner, #contact {
-		background-attachment: fixed;
+		/*background-attachment: fixed;*/
 	}
 }
