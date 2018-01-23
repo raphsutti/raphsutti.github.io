@@ -1,8 +1,10 @@
 #banner {
 	
 	background-image: url('images/mountain2.jpg');
-	background-size: 100% auto;
+	background-size: cover;
+	background-position: center;
 	background-repeat: no-repeat;
+	height: 600px;
 }
 
 #main {
@@ -11,19 +13,19 @@
 }
 
 h1 {
-	font-family: 'Alegreya Sans', sans-serif;
+	font-family: 'Noto Serif', sans-serif;
 	color: #FBFBFB; 
 	font-weight: bold;
 	font-size: 70px;
 	/*text-shadow: 2px 2px #8D8D8D;*/
-	margin: 20px 0;
+	margin-top: 40px;
 }
 
 h3 {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Noto Sans', sans-serif;
 	font-size: 20px;
 	color: #FFE5CC;
-	margin-bottom: 30px;
+	margin-top: 30px;
 }
 
 .lessons {
@@ -37,7 +39,7 @@ p {
 }
 
 .btn {
-	margin-bottom: 40px;
+	margin: 40px 0;
 	padding: 15px;
 	font-size: 20px;
 	border: 1px solid #959494;
