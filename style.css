@@ -2,7 +2,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	font-family: PT Sans, Cabin, sans-serif;
+	font-family: Open Sans, PT Sans, Cabin, sans-serif;
 	font-size: 20px;
 	color: #5C5C5C;
 	line-height: 1.6;
@@ -52,7 +52,7 @@ li > a:hover {
 }
 
 .shadow {
-	box-shadow: 7px 7px #424141;
+	box-shadow: 3px 3px #424141;
 }
 
 /* Header */
@@ -118,7 +118,7 @@ li > a:hover {
 }
 
 #profile img {
-	border-radius: 30px;
+	border-radius: 100%;
 
 	/*box-shadow: 10px 10px #424141;*/
 }
@@ -126,18 +126,18 @@ li > a:hover {
 /* About */
 #about {
 	padding: 2em;
-	background: #999999;
+/*	background: #999999;
 	color: #fff;
-	border-radius: 30px;
+	border-radius: 30px;*/
 	grid-area: a;
 }
 
 /* Projects */
 #projects {
 	padding: 2em;
-	background: #999999;
+/*	background: #999999;
 	color: #fff;
-	border-radius: 30px;
+	border-radius: 30px;*/
 	grid-area: pr;
 }
 
@@ -165,7 +165,7 @@ li > a:hover {
 }
 
 #linked img {
-	border-radius: 30px;
+	border-radius: 100%;
 }
 
 /* Tribute */
