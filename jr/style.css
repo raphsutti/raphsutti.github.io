@@ -1,0 +1,45 @@
+#banner {
+	
+	background-image: url('images/mountain2.jpg');
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+}
+
+#main {
+	height: 150px;
+	margin-top: 40px;
+}
+
+h1 {
+	font-family: 'Alegreya Sans', sans-serif;
+	color: #FBFBFB; 
+	font-weight: bold;
+	font-size: 70px;
+	/*text-shadow: 2px 2px #8D8D8D;*/
+	margin: 20px 0;
+}
+
+h3 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+	color: #FFE5CC;
+	margin-bottom: 30px;
+}
+
+.lessons {
+	height: 90px;
+}
+
+p {
+	font-size: 16px ;
+	font-family: 'Open Sans', sans-serif;
+
+}
+
+.btn {
+	margin-bottom: 40px;
+	padding: 15px;
+	font-size: 20px;
+	border: 1px solid #959494;
+}
+
