@@ -108,6 +108,7 @@ li > a:hover {
 	"t q"
 	"w c"
 	"po we"
+	"me ."
 	"co co";
 }
 
@@ -234,6 +235,17 @@ li > a:hover {
 	border: black 1px solid;
 }
 
+/* Menu */
+#menu {
+	grid-area: me;
+	align-self: center;
+}
+
+#menu img {
+	border-radius: 30px;
+	border: black 1px solid;
+}
+
 /* Contacts Banner */
 #contact {
 	grid-area: co;
@@ -281,6 +293,7 @@ li > a:hover {
 	"pb pb pb"
 	"q w c"
 	"we po t"
+	". me ."
 	"co co co";
 	}
 
@@ -329,6 +342,7 @@ li > a:hover {
 	"pb pb pb pb pb"
 	". q w c ."
 	". we po t ."
+	". . me . ."
 	"co co co co co";
 	}
 
