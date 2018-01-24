@@ -1,0 +1,61 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	margin: 0 auto;
+	max-width: 600px;
+	font-size: 15px;
+	background: #1b1b1e;
+	color: white;
+}
+
+h1 {
+	font-family: 'Patua One', cursive;
+	font-size: 50px;
+	color: #d95d39;
+}
+
+h2 {
+	font-size: 30px;
+	color: #b5d2cb;
+}
+
+div {
+	height: 200px;
+	background-size: cover;
+	background-position: center;
+	border-radius: 12px;
+	position: relative;
+	margin-top: 40px;
+}
+
+h3, p {
+	color: white;
+	background-color: rgba(0,0,0,.6);
+	padding: 10px;
+	margin: 0;
+}
+
+h3 {
+	font-size: 28px;
+}
+
+p {
+	position: absolute;
+	bottom: 0;
+	text-align: justify;
+}
+
+.first {
+	background-image: url("img/plain.jpg");
+}
+
+.second {
+	background-image: url("img/bacon.jpg");
+}
+
+.third {
+	background-image: url("img/special.jpg");
+}
+
+.price {
+	float: right;
+}

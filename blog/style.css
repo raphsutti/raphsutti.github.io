@@ -1,0 +1,24 @@
+header {
+	background-image: url('./img/beach.jpg');
+	background-size: cover;
+	background-position: center;
+	height: 30em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+h1, h3 {
+	color: #FFFFFF;
+}
+
+h1 {
+	font-family: 'Oswald', sans-serif;
+	font-size: 70px;
+}
+
+h3 {
+	font-family: 'Kavivanar', cursive;
+	font-size: 30px;
+}
