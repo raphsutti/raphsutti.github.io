@@ -44,7 +44,9 @@ div {
 	background-position: center;
 	border-radius: 12px;
 	position: relative;
-	margin-top: 40px;
+	/*margin-top: 40px;*/
+	max-width: 500px;
+	margin: 40px auto 0 auto;
 }
 
 p {
