@@ -38,11 +38,29 @@ h3 {
 	font-size: 28px;
 }
 
+/*hidden*/
 p {
 	position: absolute;
 	bottom: 0;
 	text-align: justify;
+	height: 30px;
+	transition: height .5s;
 }
+
+small {
+	opacity: 0;
+}
+/*hidden*/
+
+/*show*/
+.show-description p {
+	height: 140px;
+}
+
+.show-description small {
+	opacity: 1;
+}
+/*show*/
 
 .first {
 	background-image: url("img/plain.jpg");
