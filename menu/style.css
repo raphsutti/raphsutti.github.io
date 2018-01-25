@@ -27,15 +27,16 @@ div {
 	margin-top: 40px;
 }
 
-h3, p {
+p {
 	color: white;
 	background-color: rgba(0,0,0,.6);
 	padding: 10px;
 	margin: 0;
+	font-size: 23px;
 }
 
-h3 {
-	font-size: 28px;
+small {
+	font-size: 15px;
 }
 
 /*hidden*/
@@ -45,6 +46,8 @@ p {
 	text-align: justify;
 	height: 30px;
 	transition: height .5s;
+	-webkit-transition: height .5s;
+  	-moz-transition: height .5s;
 }
 
 small {
