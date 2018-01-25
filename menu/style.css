@@ -10,22 +10,22 @@ body {
 
 h1 {
 	font-family: 'Patua One', cursive;
-	font-size: 60px;
+	font-size: 50px;
 	color: #d95d39;
-	margin: 20px 0;
+	margin: 20px 0 10px 0;
 }
 
 h2 {
 	font-size: 30px;
 	color: #b5d2cb;
-	margin: 10px 0;
+	margin: 15px 0;
 }
 
 h3 {
 	font-size: 25px;
 	font-family: Roboto Condensed;
 	font-style: normal;
-	margin: 0 0 6px 0;
+	margin: 0;
 }
 
 button {
@@ -35,7 +35,7 @@ button {
 	font-size: 15px;
 	color: white;
 	border-radius: 8px;
-	margin-top: 10px;
+	margin-top: 30px;
 }
 
 div {
