@@ -16,7 +16,9 @@ header {
 	border-bottom: #d95d39 3px solid;
 	position: fixed;
 	top: 0;
-	width: 700px;
+	right:0%;
+	width: 1500px;
+	z-index: 1;
 }
 
 header a {

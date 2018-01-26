@@ -3,6 +3,7 @@ $(document).ready(function() {
 	$('div').mouseenter(function() {
 		$(this).toggleClass('show-description');
 	});
+
 	// $('div').click(function() {
 	// 	$(this).toggleClass('show-description');
 	// });
