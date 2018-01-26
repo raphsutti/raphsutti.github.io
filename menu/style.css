@@ -8,11 +8,48 @@ body {
 	text-align: center;
 }
 
+/* Header */
+header {
+	background: #1b1b1e;
+	color: #fff;
+	min-height: 40px;
+	border-bottom: #d95d39 3px solid;
+	position: fixed;
+	top: 0;
+	width: 700px;
+}
+
+header a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+header li {
+	float: left;
+	display: inline;
+	padding: 0 20px;
+}
+
+header nav {
+	float: right;
+	margin: 10px 0;
+}
+
+header a:hover {
+	color: #d95d39;
+}
+
+.active a {
+	color: #d95d39;
+}
+/*header*/
+
 h1 {
 	font-family: 'Patua One', cursive;
 	font-size: 50px;
 	color: #d95d39;
-	margin: 20px 0 10px 0;
+	margin: 90px 0 10px 0;
 }
 
 h2 {
