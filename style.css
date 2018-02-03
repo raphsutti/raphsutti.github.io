@@ -17,18 +17,13 @@ img {
 	height: auto;
 }
 
-h1, h2, h3 {
-	margin: 0;
-}
-
 h2 {
 	font-size: 1.5em;
 }
 
 p {
-	margin: 0;
 	padding-top: 1em;
-	font-size: 1em;
+	font-size: 0.9em;
 }
 
 a > img:hover {
@@ -57,7 +52,7 @@ li > a:hover {
 
 /* Header */
 #header {
-	background-image: url('./img/mountain3.png');
+	background-image: url('./img/mountain.jpg');
 	background-size: cover;
 	background-position: center;
 	height: 30em;
@@ -67,9 +62,7 @@ li > a:hover {
 	align-items: center;
 	text-align: center;
 	padding: 0 1em;
-	color: #fff;
-	margin-bottom: 3em;
-	
+	color: #fff;	
 	/* fixed background scrolling*/
 	/*background-attachment: scroll;*/
 	background-attachment: fixed;
@@ -91,45 +84,43 @@ li > a:hover {
 	margin: 0;
 }
 
+
 /* Grid setup */
 .grid {
-	margin: 0 1%;
+	/*margin: 1%;*/
 	display: grid;
+	margin-top: 5px;
 	grid-template-columns: repeat(2, 1fr);
 	grid-auto-rows: minmax(25px, auto);
-	grid-gap: 1.5em;
-	grid-row-gap: 2em;
+	grid-gap: 0.5em;
+	/*grid-row-gap: 2em;*/
 	grid-template-areas:
 	"p l"
 	"a a"
 	"pr pr"
 	". ."
 	"pb pb"
+	"me we"
 	"t q"
 	"w c"
-	"po we"
-	"me ."
+	"po ."
 	"co co";
 }
 
 /* Profile pic */
 #profile {
 	grid-area: p;
-	/*align-self: center;*/
 }
 
-#profile img {
-	border-radius: 100%;
-
-	/*box-shadow: 10px 10px #424141;*/
+/* Profile pic */
+#linked {
+	grid-area: l;
 }
 
 /* About */
 #about {
-	padding: 2em;
-/*	background: #999999;
-	color: #fff;
-	border-radius: 30px;*/
+	margin: auto 10%;
+	margin-top: 20px;
 	grid-area: a;
 }
 
@@ -160,15 +151,6 @@ li > a:hover {
 	background-attachment: fixed;
 }
 
-/* Profile pic LinkedIn */
-#linked {
-	grid-area: l;
-}
-
-#linked img {
-	border-radius: 100%;
-}
-
 /* Tribute */
 #tribute {
 	grid-area: t;
@@ -176,7 +158,7 @@ li > a:hover {
 }
 
 #tribute img {
-	border-radius: 30px;
+	/*border-radius: 30px;*/
 	border: black 1px solid;
 }
 
@@ -187,7 +169,7 @@ li > a:hover {
 }
 
 #quote img {
-	border-radius: 30px;
+	/*border-radius: 30px;*/
 	border: black 1px solid;
 }
 
@@ -198,7 +180,7 @@ li > a:hover {
 }
 
 #wiki img {
-	border-radius: 30px;
+	/*border-radius: 30px;*/
 	border: black 1px solid;
 }
 
@@ -209,7 +191,7 @@ li > a:hover {
 }
 
 #calc img {
-	border-radius: 30px;
+	/*border-radius: 30px;*/
 	border: black 1px solid;
 }
 
@@ -220,7 +202,7 @@ li > a:hover {
 }
 
 #pomodoro img {
-	border-radius: 30px;
+	/*border-radius: 30px;*/
 	border: black 1px solid;
 }
 
@@ -231,7 +213,7 @@ li > a:hover {
 }
 
 #weather img {
-	border-radius: 30px;
+	/*border-radius: 30px;*/
 	border: black 1px solid;
 }
 
@@ -242,7 +224,7 @@ li > a:hover {
 }
 
 #menu img {
-	border-radius: 30px;
+	/*border-radius: 30px;*/
 	border: black 1px solid;
 }
 
@@ -284,17 +266,18 @@ li > a:hover {
 	.grid {
 	/*margin: 0 5%;*/
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 2em;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 0.5em;
 	grid-template-areas:
-	"p a a"
-	"pr pr l"
-	". . ."
-	"pb pb pb"
-	"q w c"
-	"we po t"
-	". me ."
-	"co co co";
+	". p l ."
+	"a a a a"
+	"pr pr pr pr"
+	". . . ."
+	"pb pb pb pb"
+	"me me q w"
+	"me me c we"
+	". po t ."
+	"co co co co";
 	}
 
 	#header h1 {
@@ -326,6 +309,9 @@ li > a:hover {
 	#header, #project-banner, #contact {
 		background-attachment: fixed;
 	}
+	#about h2 {
+		/*color: orange;*/
+	}
 }
 
 /* Desktop version */
@@ -333,17 +319,18 @@ li > a:hover {
 	.grid {
 	/*margin: 0 5%;*/
 	display: grid;
-	grid-template-columns: 1fr repeat(3, 3fr) 1fr;
-	grid-gap: 2em;
+	grid-template-columns: 1fr repeat(4, 3fr) 1fr;
+	grid-gap: 0.5em;
 	grid-template-areas:
-	". p a a ."
-	". pr pr l ."
-	". . . . ."
-	"pb pb pb pb pb"
-	". q w c ."
-	". we po t ."
-	". . me . ."
-	"co co co co co";
+	". p p l l ."
+	". a a a a ."
+	". pr pr pr pr ."
+	". . . . . ."
+	"pb pb pb pb pb pb"
+	". me me q we ."
+	". me me w t ."
+	". . po c . ."
+	"co co co co co co";
 	}
 
 	#header h1 {
@@ -374,5 +361,8 @@ li > a:hover {
 
 	#header, #project-banner, #contact {
 		background-attachment: fixed;
+	}
+	#about h2 {
+		/*color: red;*/
 	}
 }
