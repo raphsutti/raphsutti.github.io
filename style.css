@@ -100,6 +100,7 @@ li > a:hover {
 	"pr pr"
 	". ."
 	"pb pb"
+	"pu ga"
 	"me we"
 	"t q"
 	"w c"
@@ -228,6 +229,26 @@ li > a:hover {
 	border: black 1px solid;
 }
 
+#puppy {
+	grid-area: pu;
+	align-self: center;
+}
+
+#puppy img {
+	/*border-radius: 30px;*/
+	border: black 1px solid;
+}
+
+#gallery {
+	grid-area: ga;
+	align-self: center;
+}
+
+#gallery img {
+	/*border-radius: 30px;*/
+	border: black 1px solid;
+}
+
 /* Contacts Banner */
 #contact {
 	grid-area: co;
@@ -276,7 +297,7 @@ li > a:hover {
 	"pb pb pb pb"
 	"me me q w"
 	"me me c we"
-	". po t ."
+	"pu ga t po"
 	"co co co co";
 	}
 
@@ -329,7 +350,7 @@ li > a:hover {
 	"pb pb pb pb pb pb"
 	". me me q we ."
 	". me me w t ."
-	". . po c . ."
+	". pu ga c po ."
 	"co co co co co co";
 	}
 

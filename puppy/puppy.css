@@ -1,0 +1,40 @@
+body {
+	background-image: url('https://static.pexels.com/photos/69372/pexels-photo-69372.jpeg');
+	background-size: cover;
+	background-position: center;
+	font-family: Montserrat;
+	color: white;
+}
+
+html {
+	height: 100%;
+}
+
+#content {
+	text-align: center;
+	padding-top: 25%;
+	text-shadow: 1px 1px 2px black;
+}
+
+
+h1 {
+	font-size: 5em;
+	font-weight: 700;
+}
+
+h1, h3 {
+
+}
+
+hr {
+	width: 400px;
+	border-top: 1px solid #F3F3F3;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+footer {
+	font-size: 0.8em;
+	position: absolute;
+	bottom:1%;
+	right: 1%;
+
+}
