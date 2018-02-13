@@ -73,3 +73,10 @@ button:hover {
 	color: white;
 	background: steelblue;
 }
+
+/* phone version */
+@media only screen and (max-width: 740px) {
+	h1 {
+		color: yellow;
+	}
+}
