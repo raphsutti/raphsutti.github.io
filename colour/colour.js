@@ -73,24 +73,6 @@ function reset() {
 	h1.style.backgroundColor = "steelblue";
 }
 
-resetButton.addEventListener('click', function(){
-	reset();
-})
-
-function changeColours(colour) {
-	// loop through all squares
-	for(var i=0; i<squares.length; i++) {
-		// change all squares to match given colour
-		squares[i].style.background = colour;
-	}
-}
-
-// pick out of 6 or 3 colours
-function pickColour() {
-	var random = Math.floor(Math.random()*colours.length);
-	return colours[random];
-}
-
 function generateRandomColours(num) {
 	var arr = [];
 	// repeat num times
@@ -101,6 +83,7 @@ function generateRandomColours(num) {
 	return arr;
 }
 
+// random rgb value
 function randomColour() {
 	// pick a red from 0 to 255
 	var r = Math.floor(Math.random() * 256);
@@ -109,4 +92,24 @@ function randomColour() {
 	// pick a blue from 0 to 255
 	var b = Math.floor(Math.random() * 256);
 	return "rgb(" + r + ", " + g + ", " + b + ")";
+}
+
+// pick out of 6 or 3 colours
+function pickColour() {
+	var random = Math.floor(Math.random()*colours.length);
+	return colours[random];
+}
+
+// reset button
+resetButton.addEventListener('click', function(){
+	reset();
+})
+
+// change all squares to winning colour
+function changeColours(colour) {
+	// loop through all squares
+	for(var i=0; i<squares.length; i++) {
+		// change all squares to match given colour
+		squares[i].style.background = colour;
+	}
 }

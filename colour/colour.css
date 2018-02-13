@@ -22,7 +22,7 @@ h1 {
 #message {
 	display: inline-block;
 	width: 20%;
-	color: orange;
+	color: red;
 }
 
 .container {
@@ -81,8 +81,8 @@ button:hover {
 	}
 
 	#message {
-	width: 20%;
-	font-size: 14px;
+	width: 22%;
+	font-size: 12px;
 	font-weight: 800;
 	}
 }
