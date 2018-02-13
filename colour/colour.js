@@ -16,18 +16,22 @@ function init() {
 	reset();	
 }
 
+// easy and hard mode buttons
 function setupModeButton() {
 	for (var i=0; i<modeButtons.length; i++) {
 		modeButtons[i].addEventListener('click', function() {
+			// reset and add highlighted selected class
 			modeButtons[0].classList.remove('selected');
 			modeButtons[1].classList.remove('selected');
 			this.classList.add('selected');
+			//  set numSquares for later
 			this.textContent === "Easy" ? numSquares = 3: numSquares = 6;
 			reset();
 		});
 	}
 }
 
+// squares click listener and compare
 function setupSquares() {
 	for (var i=0; i<squares.length; i++) {
 		// add click listeners to squares

@@ -2,8 +2,6 @@ body {
 	background: #232323;
 	margin: 0;
 	font-family: "Montserrat";
-	/*color: white;*/
-	
 }
 
 h1 {
@@ -80,7 +78,10 @@ button:hover {
 		color: #EBEAEA;
 		font-size: 25px;
 	}
+
 	#message {
-	width: 35%;
+	width: 25%;
+	font-size: 12px;
+	font-weight: 800;
 	}
 }
