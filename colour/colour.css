@@ -80,4 +80,7 @@ button:hover {
 		color: #EBEAEA;
 		font-size: 25px;
 	}
+	#message {
+	width: 35%;
+	}
 }
