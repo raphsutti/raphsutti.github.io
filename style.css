@@ -105,6 +105,7 @@ li > a:hover {
 	"t q"
 	"w c"
 	"po ga"
+	"pat ."
 	"co co";
 }
 
@@ -259,6 +260,16 @@ li > a:hover {
 	border: black 1px solid;
 }
 
+#patatap {
+	grid-area: pat;
+	align-self: center;
+}
+
+#patatap img {
+	/*border-radius: 30px;*/
+	border: black 1px solid;
+}
+
 /* Contacts Banner */
 #contact {
 	grid-area: co;
@@ -309,6 +320,8 @@ li > a:hover {
 	"me me col col"
 	"pu ga col col"
 	"c we t po"
+	". pat pat ."
+	". pat pat ."
 	"co co co co";
 	}
 
@@ -363,6 +376,8 @@ li > a:hover {
 	". me me col col ."
 	". pu ga col col ."
 	". w t c po ."
+	". . pat pat . ."
+	". . pat pat . ."
 	"co co co co co co";
 	}
 
