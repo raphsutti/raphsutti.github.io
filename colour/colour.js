@@ -10,6 +10,7 @@ var modeButtons = document.querySelectorAll(".mode");
 
 init();
 
+// Set up functions
 function init() {
 	setupModeButton();
 	setupSquares();
@@ -41,10 +42,12 @@ function setupSquares() {
 			// compare colour to pickedColour
 			if (clickedColour === pickedColour) {
 				messageDisplay.textContent = "Correct!"
+				// Change all squares to correct colour
 				changeColours(clickedColour);
 				h1.style.background = clickedColour;
 				resetButton.textContent = "Play again?"
 			} else {
+				// Make clicked square disappear
 				this.style.backgroundColor = "#232323";
 				messageDisplay.textContent = "Try again!"
 			}
