@@ -2,9 +2,48 @@ i.icon {
 	font-size: 1.5em;
 }
 
-.main.container{
-	margin-top: 4em;
+#hero {
+	margin-top: 3.5em;
+	background-image:url('https://static.pexels.com/photos/175039/pexels-photo-175039.jpeg');
+	background-size: cover;
+	background-position: center;
+	height: 500px;
+	opacity: 0.8;
+	position: relative;
 }
+
+#logo {
+	padding-top: 100px;
+}
+
+#logo img {
+	height: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+#tagline {
+	text-align: center;
+	margin-top: 20px;
+	font-family: Roboto;
+	font-size: 35px;
+	color: #F1F1F1;
+	text-shadow: 2px 2px black;
+}
+
+.main.container{
+	margin-top: 10px;
+}
+
+.content {
+	margin-top: 10px;
+}
+
+.content:nth-child(2n) {
+	background: #E6E2E2;
+}
+
 #test {
-	height: 2000px;
+	/*height: 2000px;*/
 }
