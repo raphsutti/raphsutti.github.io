@@ -1,0 +1,88 @@
+﻿body {
+	font-family: 'Roboto', serif;
+}
+
+h1 {
+	font-size: 60px;
+	font-weight: 1000;
+	font-family: 'Karma', serif;
+	text-align: center;
+	background: rgb(71, 70, 71); 
+	color: white;
+	padding: 20px 0
+}
+
+h2, h3 {
+	font-family: 'Karma', serif;
+}
+
+h2 {
+	font-weight: 900;
+	font-size: 50px;
+}
+
+.mainlist {
+	margin: 30px auto;
+	background: #EEEEEE;
+	width: 70%;
+}
+
+.header {
+	background: rgb(133, 154, 247);
+	color: white;
+	font-size: 20px;
+}
+
+.cover {
+	position: relative;
+	display: inline-block;
+	width: 150px;
+	height: auto;
+	transition: all 0.1s;
+	border: 8px rgb(133, 154, 247) solid;
+	margin-left: 20px;
+}
+
+.imgcover {
+	position:relative;
+	top: 0;
+	left: 0;
+	min-height: 200px;
+}
+
+.content {
+	text-align: center;
+}
+
+.cover:hover {
+	position: absolute;
+	width:300px;
+	height:auto;
+	top:20px; left:20px; 
+	z-index:999;
+}
+
+.red a {
+	color: #F55050;
+	font-weight: bold;
+}
+
+.grey a {
+	color: grey
+}
+
+.mainimg {
+	margin: 40px 0;
+	border: 10px #EBD2D2 solid;
+	width: 50%;
+	
+}
+
+td > a {
+	display: block;
+	margin-right: 10%;
+}
+
+footer {
+	text-align: center;
+}
