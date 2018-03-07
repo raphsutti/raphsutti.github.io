@@ -73,7 +73,7 @@ function reset() {
 			squares[i].style.display = "none";
 		}
 	}
-	h1.style.backgroundColor = "rgb(11, 175, 85)";
+	// h1.style.background = "";
 }
 
 function generateRandomColours(num) {
