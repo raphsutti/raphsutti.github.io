@@ -91,15 +91,14 @@ li > a:hover {
 .grid {
 	/*margin: 1%;*/
 	display: grid;
-	margin-top: 5px;
+	/* margin-top: 5px; */
 	grid-template-columns: repeat(2, 1fr);
 	grid-auto-rows: minmax(30px, auto);
-	grid-gap: 0.5em;
+	grid-gap: 0.9em;
 	/* grid-row-gap: 2em; */
 	grid-template-areas:
 	"p l"
 	"a a"
-	"pr pr"
 	". ."
 	"pb pb"
 	"col pu"
@@ -330,7 +329,7 @@ li > a:hover {
 	grid-template-areas:
 	". p l ."
 	"a a a a"
-	"pr pr pr pr"
+	/* "pr pr pr pr" */
 	". . . ."
 	"pb pb pb pb"
 	"col col q w"
@@ -381,11 +380,11 @@ li > a:hover {
 	/*margin: 0 5%;*/
 	display: grid;
 	grid-template-columns: 1fr repeat(4, 3fr) 1fr;
-	grid-gap: 1em;
+	grid-gap: 2.5em;
 	grid-template-areas:
 	". p p l l ."
 	". a a a a ."
-	". pr pr pr pr ."
+	/* ". pr pr pr pr ." */
 	". . . . . ."
 	"pb pb pb pb pb pb"
 	". col col q we ."
