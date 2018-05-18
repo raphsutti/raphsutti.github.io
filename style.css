@@ -101,12 +101,13 @@ li > a:hover {
 	"a a"
 	". ."
 	"pb pb"
-	"col pu"
+	"col rb"
 	"me we"
 	"t q"
 	"w c"
 	"po ga"
-	"pat bo"
+	"pat pu"
+	"bo bo"
 	"co co";
 }
 
@@ -286,6 +287,15 @@ li > a:hover {
 	border: black 1px solid;
 }
 
+#railsblog {
+	grid-area: rb;
+	align-self: center;
+}
+
+#railsblog > img {
+	border: black 1px solid;
+}
+
 /* Contacts Banner */
 #contact {
 	grid-area: co;
@@ -336,7 +346,7 @@ li > a:hover {
 	"col col pat pat"
 	"pu ga pat pat"
 	"c we t po"
-	". me bo ."
+	"me bo rb rb"
 	"co co co co";
 	}
 
@@ -391,7 +401,7 @@ li > a:hover {
 	". col col pat pat ."
 	". pu ga pat pat ."
 	". w t c po ."
-	". . me bo . ."
+	". me bo rb rb ."
 	"co co co co co co";
 	}
 
