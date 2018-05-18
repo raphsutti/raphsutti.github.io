@@ -67,6 +67,7 @@ li > a:hover {
 	/* fixed background scrolling*/
 	/*background-attachment: scroll;*/
 	background-attachment: fixed;
+	margin-bottom: 50px;
 }
 
 #header h1 {
