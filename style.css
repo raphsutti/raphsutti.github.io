@@ -23,8 +23,8 @@ p {
 	font-size: 0.9em;
 }
 
-a > img:hover {
-	opacity: 0.7;
+a > img:hover, .grid>div:hover img {
+	opacity: 0.6;
 	box-shadow: none;
 }
 
@@ -128,8 +128,42 @@ li > a:hover {
 	margin-bottom: 50px;
 }
 
+.grid-element {
+	position: relative;
+}
+
+.hidden > p {
+	font-size: 0.7em;
+	margin: 0 10px;
+	padding: 0.5em;
+}
+
+.hidden > p:first-child {
+	padding-top: 0.8em;
+}
+
+.hidden {
+	display: none;
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	background-color: rgba(12, 21, 51, 0.6);
+	color: whitesmoke;
+	width: 80%;
+	height: 80%;
+	border-radius: 10px;
+	
+}
+
+.grid>div:hover .hidden {
+	display:block;
+	
+}
+
 .grid img {
 	border: black 1px solid;
+
+	position: relative;
 }
 
 .grid div img {
