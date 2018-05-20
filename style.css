@@ -132,6 +132,11 @@ li > a:hover {
 	border: black 1px solid;
 }
 
+.grid div img {
+	height: 100%;
+	/* vertical-align: middle; */
+}
+
 #railsblog {
 	grid-area: rb;
 }
