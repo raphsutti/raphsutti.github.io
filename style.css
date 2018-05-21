@@ -143,21 +143,23 @@ li > a:hover {
 }
 
 .hidden {
-	display: none;
+	visibility: hidden;
 	position: absolute;
-	top: 10%;
-	left: 10%;
+	top: 0%;
+	left: 0%;
 	background-color: rgba(12, 21, 51, 0.6);
 	color: whitesmoke;
-	width: 80%;
-	height: 80%;
-	border-radius: 10px;
-	
+	width: 100%;
+	height: 100%;
+	border-radius: 5%;
+	visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.2s linear;
 }
 
 .grid>div:hover .hidden {
-	display:block;
-	
+	visibility: visible;
+	opacity: 1;
 }
 
 .grid img {
