@@ -86,11 +86,11 @@ li > a:hover {
 	justify-content: space-around;
 }
 
-#profile, #linked {
-	width: 40%;
+#profile, #lesson, #linked, #cc {
+	width: 20%;
 }
 
-#profile img, #linked img {
+#profile img, #lesson img, #linked img, #cc img {
 	border: black 1px solid;
 }
 
