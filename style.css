@@ -80,6 +80,13 @@ li > a:hover {
 	margin: 0;
 }
 
+#header h3 {
+	font-size: 1em;
+	font-family: Yanone Kaffeesatz;
+	color: #DED9D9;
+	margin: 0;
+}
+
 .container {
 	width: 80%;
 	display: flex;
