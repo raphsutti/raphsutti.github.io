@@ -1,4 +1,4 @@
-var squares = document.querySelectorAll(".square");
+const squares = document.querySelectorAll(".square");
 
 const selectElement = document.querySelector("#input");
 selectElement.addEventListener("change", event => {
