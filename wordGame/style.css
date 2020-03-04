@@ -2,7 +2,7 @@ h1 {
   text-align: center;
 }
 .square {
-  background-color: coral;
+  background-color: darkgrey;
   width: 100px;
   height: 100px;
   border-radius: 10%;
@@ -32,6 +32,16 @@ textareas {
   visibility: hidden;
 }
 
+.active {
+  background-color: dodgerblue;
+}
+
 .grey {
-  background-color: darkgrey;
+  background-color: deeppink;
+}
+
+#displayAnswer {
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }

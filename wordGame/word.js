@@ -16,6 +16,10 @@ const submit = document.querySelector("#start");
 submit.addEventListener("click", event => {
   inputElement.classList.add("hidden");
   button.classList.add("hidden");
+  for (var i = 0; i < resultArray.length; i++) {
+    squares[i].classList.add("active");
+  }
+
   const answerBlock = document.querySelector("#displayAnswer");
   const answerArray = [];
   document.addEventListener("keydown", event => {
@@ -26,13 +30,17 @@ submit.addEventListener("click", event => {
       if (index > -1) {
         resultArray.splice(index, 1);
         answerArray.push(char);
-        document.querySelector(`.box${char}`).classList.add("grey");
+        current = document.querySelector(`.box${char}.active`);
+        current.classList.add("grey");
+        current.classList.remove("active");
       }
     }
     if (key == 8) {
       char = answerArray.pop();
       resultArray.push(char);
-      document.querySelector(`.box${char}`).classList.remove("grey");
+      current = document.querySelector(`.box${char}.grey`);
+      current.classList.remove("grey");
+      current.classList.add("active");
     }
     answerBlock.textContent = answerArray.join("");
   });
