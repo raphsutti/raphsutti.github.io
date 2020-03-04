@@ -27,3 +27,7 @@ textareas {
   font-size: 12pt;
   border-radius: 10%;
 }
+
+.hidden {
+  visibility: hidden;
+}

@@ -1,5 +1,6 @@
 const squares = document.querySelectorAll(".square");
 
+const button = document.querySelector("#start");
 const inputElement = document.querySelector("#input");
 inputElement.addEventListener("change", event => {
   resultArray = event.target.value.split("");
@@ -10,6 +11,8 @@ inputElement.addEventListener("change", event => {
 
 const submit = document.querySelector("#start");
 submit.addEventListener("click", event => {
+  inputElement.classList.add("hidden");
+  button.classList.add("hidden");
   const answerBlock = document.querySelector("#displayAnswer");
   const answerArray = [];
   document.addEventListener("keydown", event => {

@@ -5,11 +5,14 @@
   <body>
     <h1>Word game</h1>
     <div>
-      <textarea
+      <input
         id="input"
         placeholder="Input question"
         maxlength="12"
-      ></textarea>
+        type="text"
+        pattern="[A-Za-z]"
+        onkeypress="return /[a-z]/i.test(event.key)"
+      ></input>
       <button id="start">Start</button>
     </div>
     <div class="outer">
