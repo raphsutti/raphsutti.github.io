@@ -8,19 +8,18 @@ inputElement.addEventListener("change", event => {
   }
 });
 
-const guess = document.querySelector("#answer");
-const answerBlock = document.querySelector("#displayAnswer");
-const answerArray = [];
-guess.addEventListener("keydown", event => {
-  key = event.keyCode;
-  char = String.fromCharCode(key);
-  if (answerArray.length <= 11 && char.match(/[a-z]/i)) {
-    answerArray.push(char);
-  } else if (key == 8) {
-    answerArray.pop();
-  }
-  answerBlock.textContent = answerArray.join("");
-});
-
 const submit = document.querySelector("#start");
-submit.addEventListener("click", event => {});
+submit.addEventListener("click", event => {
+  const answerBlock = document.querySelector("#displayAnswer");
+  const answerArray = [];
+  document.addEventListener("keydown", event => {
+    key = event.keyCode;
+    char = String.fromCharCode(key);
+    if (answerArray.length <= 11 && char.match(/[a-z]/i)) {
+      answerArray.push(char);
+    } else if (key == 8) {
+      answerArray.pop();
+    }
+    answerBlock.textContent = answerArray.join("");
+  });
+});
