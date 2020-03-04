@@ -12,7 +12,15 @@ const guess = document.querySelector("#answer");
 const answerBlock = document.querySelector("#displayAnswer");
 const answerArray = [];
 guess.addEventListener("keydown", event => {
-  char = String.fromCharCode(event.keyCode);
-  answerArray.push(char);
+  key = event.keyCode;
+  char = String.fromCharCode(key);
+  if (answerArray.length <= 11 && char.match(/[a-z]/i)) {
+    answerArray.push(char);
+  } else if (key == 8) {
+    answerArray.pop();
+  }
   answerBlock.textContent = answerArray.join("");
 });
+
+const submit = document.querySelector("#start");
+submit.addEventListener("click", event => {});
