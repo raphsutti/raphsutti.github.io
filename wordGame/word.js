@@ -6,7 +6,9 @@ let resultArray = [];
 inputElement.addEventListener("change", event => {
   resultArray = event.target.value.toUpperCase().split("");
   for (var i = 0; i < resultArray.length; i++) {
-    squares[i].textContent = event.target.value[i];
+    character = event.target.value[i];
+    squares[i].textContent = character;
+    squares[i].classList.add(`box${character}`);
   }
 });
 
@@ -21,13 +23,16 @@ submit.addEventListener("click", event => {
     char = String.fromCharCode(key);
     if (answerArray.length <= 11 && char.match(/[a-z]/i)) {
       index = resultArray.indexOf(char);
-      console.log(index);
       if (index > -1) {
         resultArray.splice(index, 1);
         answerArray.push(char);
+        document.querySelector(`.box${char}`).classList.add("grey");
       }
-    } else if (key == 8) {
-      resultArray.push(answerArray.pop());
+    }
+    if (key == 8) {
+      char = answerArray.pop();
+      resultArray.push(char);
+      document.querySelector(`.box${char}`).classList.remove("grey");
     }
     answerBlock.textContent = answerArray.join("");
   });
