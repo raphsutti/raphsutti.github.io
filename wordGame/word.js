@@ -7,3 +7,12 @@ selectElement.addEventListener("change", event => {
     squares[i].textContent = event.target.value[i];
   }
 });
+
+const guess = document.querySelector("#answer");
+const answerBlock = document.querySelector("#displayAnswer");
+const answerArray = [];
+guess.addEventListener("keydown", event => {
+  char = String.fromCharCode(event.keyCode);
+  answerArray.push(char);
+  answerBlock.textContent = answerArray.join("");
+});
