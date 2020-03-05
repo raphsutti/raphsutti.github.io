@@ -3,6 +3,17 @@ const squares = document.querySelectorAll(".square");
 const button = document.querySelector("#start");
 const inputElement = document.querySelector("#input");
 let resultArray = [];
+const urlParam = window.location.href.match(/\?q=([^&]*)/)[1];
+
+if (urlParam) {
+  resultArray = urlParam.toUpperCase().split("");
+  for (var i = 0; i < resultArray.length; i++) {
+    character = resultArray[i];
+    squares[i].textContent = character;
+    squares[i].classList.add(`box${character}`);
+  }
+}
+
 inputElement.addEventListener("change", event => {
   resultArray = event.target.value.toUpperCase().split("");
   for (var i = 0; i < resultArray.length; i++) {
