@@ -3,7 +3,7 @@ const squares = document.querySelectorAll(".square");
 const button = document.querySelector("#start");
 const inputElement = document.querySelector("#input");
 let resultArray = [];
-const urlParam = window.location.href.match(/\?q=([^&]*)/)[1];
+const urlParam = window.location.href.match(/\?.+=([^&]*)/)[1];
 
 if (urlParam) {
   resultArray = urlParam.toUpperCase().split("");
@@ -12,21 +12,6 @@ if (urlParam) {
     squares[i].textContent = character;
     squares[i].classList.add(`box${character}`);
   }
-}
-
-inputElement.addEventListener("change", event => {
-  resultArray = event.target.value.toUpperCase().split("");
-  for (var i = 0; i < resultArray.length; i++) {
-    character = event.target.value[i];
-    squares[i].textContent = character;
-    squares[i].classList.add(`box${character}`);
-  }
-});
-
-const submit = document.querySelector("#start");
-submit.addEventListener("click", event => {
-  inputElement.classList.add("hidden");
-  button.classList.add("hidden");
   for (var i = 0; i < resultArray.length; i++) {
     squares[i].classList.add("active");
   }
@@ -55,4 +40,4 @@ submit.addEventListener("click", event => {
     }
     answerBlock.textContent = answerArray.join("");
   });
-});
+}
