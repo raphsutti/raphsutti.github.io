@@ -1,11 +1,10 @@
 const squares = document.querySelectorAll(".square");
-
-const button = document.querySelector("#start");
-const inputElement = document.querySelector("#input");
 let resultArray = [];
-const urlParam = window.location.href.match(/\?.+=([^&]*)/)[1];
+const url = window.location.href.match(/\?.+=([^&]*)/);
+let urlParam;
 
-if (urlParam) {
+if (url != null) {
+  urlParam = window.location.href.match(/\?.+=([^&]*)/)[1];
   resultArray = urlParam.toUpperCase().split("");
   for (var i = 0; i < resultArray.length; i++) {
     character = resultArray[i];
@@ -40,4 +39,9 @@ if (urlParam) {
     }
     answerBlock.textContent = answerArray.join("");
   });
+} else {
+  text =
+    "Refresh the page with '?q=[word] at the end of the url' to play the game";
+  info = document.querySelector("#info");
+  info.textContent = text;
 }
