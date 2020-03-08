@@ -28,6 +28,9 @@ if (url != null) {
         current = document.querySelector(`.box${char}.active`);
         current.classList.add("grey");
         current.classList.remove("active");
+        if (answerArray.length === 12) {
+          document.querySelector("#yay").textContent = "🎉";
+        }
       }
     }
     if (key == 8) {
@@ -36,6 +39,9 @@ if (url != null) {
       current = document.querySelector(`.box${char}.grey`);
       current.classList.remove("grey");
       current.classList.add("active");
+      if (answerArray.length === 11) {
+        document.querySelector("#yay").textContent = "";
+      }
     }
     answerBlock.textContent = answerArray.join("");
   });
