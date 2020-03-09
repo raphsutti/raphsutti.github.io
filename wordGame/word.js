@@ -47,7 +47,7 @@ if (url != null) {
   });
 } else {
   text =
-    "Refresh the page with '?q=[word] at the end of the url' to play the game";
+    "Refresh the page with '?q=[word]' at the end of the url to play the game";
   info = document.querySelector("#info");
   info.textContent = text;
 }
