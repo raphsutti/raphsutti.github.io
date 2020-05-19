@@ -24,15 +24,27 @@ if (url != null) {
   info = document.querySelector("#info");
   info.textContent = text;
 }
-resultArray = urlParam.toUpperCase().split("");
-for (var i = 0; i < resultArray.length; i++) {
-  character = resultArray[i];
-  squares[i].textContent = character;
-  squares[i].classList.add(`box${character}`);
+
+function assignLetters() {
+  resultArray = urlParam.toUpperCase().split("");
+  resultArray.sort(() => Math.random() - 0.5)
+  for (var i = 0; i < resultArray.length; i++) {
+    character = resultArray[i];
+    squares[i].textContent = character;
+    squares[i].classList.add(`box${character}`);
+  }
+  for (var i = 0; i < resultArray.length; i++) {
+    squares[i].classList.add("active");
+  }
 }
-for (var i = 0; i < resultArray.length; i++) {
-  squares[i].classList.add("active");
-}
+
+assignLetters();
+
+const shuffleButton = document.getElementById("shuffleButton");
+shuffleButton.addEventListener("click",
+
+function(){assignLetters()}
+)
 
 const answerBlock = document.querySelector("#displayAnswer");
 const answerArray = [];
