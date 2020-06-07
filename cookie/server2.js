@@ -12,12 +12,14 @@ const BALANCES = {
   bob: 100
 }
 
+const COOKIE_SECRET = "askldksladklasdSKLDsalkdklsafsklagalkLKSLKCA"
+
 const app = express()
 app.use(bodyParser.urlencoded({ extended: false}))
-app.use(cookieParser())
+app.use(cookieParser(COOKIE_SECRET))
 
 app.get('/', (req, res) => {
-  const username = req.cookies.username
+  const username = req.signedCookies.username
   if (username) {
     const balance = BALANCES[username]
     res.send(`Hi ${username}. Your balance is $${balance}`)
@@ -31,7 +33,7 @@ app.post('/login', (req, res) => {
   const password = USERS[username]
 
   if (req.body.password === password) {
-    res.cookie('username', username)
+    res.cookie('username', username, { signed: true })
     res.send('logged in!')
   } else {
     res.send('failed login')
