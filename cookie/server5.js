@@ -42,10 +42,15 @@ app.post('/login', (req, res) => {
   const username = req.body.username
   const password = USERS[username]
   if (req.body.password === password) {
-    const nextSessionId = randomBytes(16).toString('base64')
-		res.cookie('sessionId', nextSessionId)
-		SESSIONS[nextSessionId] = username
-    res.redirect('/')
+    const SessionId = randomBytes(16).toString('base64')
+    SESSIONS [SessionId] = username 
+    res.cookie('sessionId', SessionId, {
+      // secure: true,
+      httpOnly: true,
+      sameSite: 'lax',
+      maxAge: 30 * 24 * 60 * 60 * 1000 // 30 days
+    });
+    res.redirect('/') 
   } else {
     res.send('failed login')
   }
@@ -54,7 +59,11 @@ app.post('/login', (req, res) => {
 app.get('/logout', (req, res) => {
   const sessionId = req.cookies.sessionId
   delete SESSIONS[sessionId]
-  res.clearCookie('sessionId')
+  res.clearCookie('sessionId', {
+    // secure: true,
+    httpOnly: true,
+    sameSite: 'lax'
+  })
   res.redirect('/')
 })
 
