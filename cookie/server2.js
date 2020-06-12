@@ -1,3 +1,4 @@
+// cookie is signed
 const express = require('express')
 const { createReadStream } = require('fs')
 const bodyParser = require('body-parser')

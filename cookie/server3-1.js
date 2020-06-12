@@ -1,8 +1,13 @@
-// cookie is your username
+// cookie is random number
 const express = require('express')
+const cookieParser = require('cookie-parser')
 const { createReadStream } = require('fs')
 const bodyParser = require('body-parser')
-const cookieParser = require('cookie-parser')
+const { randomBytes } = require('crypto')
+
+const app = express()
+app.use(cookieParser())
+app.use(bodyParser.urlencoded({ extended: false }))
 
 const USERS = {
   alice: 'password',
@@ -13,12 +18,11 @@ const BALANCES = {
   bob: 100
 }
 
-const app = express()
-app.use(bodyParser.urlencoded({ extended: false}))
-app.use(cookieParser())
+const SESSIONS = {} // sessionid -> { username: '', etc}
 
 app.get('/', (req, res) => {
-  const username = req.cookies.username
+	const sessionId = req.cookies.sessionId
+  const username = SESSIONS[sessionId]
   if (username) {
     const balance = BALANCES[username]
     res.send(`Hi ${username}. Your balance is $${balance}`)
@@ -30,9 +34,10 @@ app.get('/', (req, res) => {
 app.post('/login', (req, res) => {
   const username = req.body.username
   const password = USERS[username]
-
   if (req.body.password === password) {
-    res.cookie('username', username)
+    const nextSessionId = randomBytes(16).toString('base64')
+		res.cookie('sessionId', nextSessionId)
+		SESSIONS[nextSessionId] = username
     res.redirect('/')
   } else {
     res.send('failed login')
@@ -40,7 +45,9 @@ app.post('/login', (req, res) => {
 })
 
 app.get('/logout', (req, res) => {
-  res.clearCookie('username')
+  const sessionId = req.cookies.sessionId
+  delete SESSIONS[sessionId]
+  res.clearCookie('sessionId')
   res.redirect('/')
 })
 

@@ -1,3 +1,4 @@
+// cookie is sequential guessable number
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const { createReadStream } = require('fs')
@@ -17,6 +18,7 @@ const BALANCES = {
   bob: 100
 }
 
+let nextSessionId = 0;
 const SESSIONS = {} // sessionid -> { username: '', etc}
 
 app.get('/', (req, res) => {
@@ -34,7 +36,7 @@ app.post('/login', (req, res) => {
   const username = req.body.username
   const password = USERS[username]
   if (req.body.password === password) {
-    const nextSessionId = randomBytes(16).toString('base64')
+    nextSessionId += 1;
 		res.cookie('sessionId', nextSessionId)
 		SESSIONS[nextSessionId] = username
     res.redirect('/')

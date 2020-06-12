@@ -1,3 +1,4 @@
+// transfer funds function - use with attacker.html
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const { createReadStream } = require('fs')
