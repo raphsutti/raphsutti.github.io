@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const express = require('express')
 const { randomBytes } = require('crypto')
+const htmlEscape = require('html-escape')
 
 const app = express()
 app.use(cookieParser())
@@ -24,7 +25,7 @@ const SESSIONS = {}
 
 app.get('/', (req, res) => {
   const username = SESSIONS[req.cookies.sessionId]
-  const source = req.query.source
+  const source = htmlEscape(req.query.source)
 
   if (username) {
     res.send(`
@@ -36,6 +37,9 @@ app.get('/', (req, res) => {
         <input name='to' />
         <input type='submit' value='Send' />
       </form>
+      <h1>
+      ${source ? `Hi ${source} reader` : ''}
+      </h1>
     `)
   } else {
     res.send(`
