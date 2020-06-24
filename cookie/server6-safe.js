@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const express = require('express')
 const { randomBytes } = require('crypto')
+const htmlEscape = require('html-escape')
 
 const app = express()
 app.use(cookieParser())
@@ -10,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use((req, res, next) => {
   res.set('X-XSS-Protection', '0') 
   next()
-})
+ })
 
 const USERS = {
   alice: 'password',
@@ -24,7 +25,7 @@ const SESSIONS = {}
 
 app.get('/', (req, res) => {
   const username = SESSIONS[req.cookies.sessionId]
-  const source = req.query.source
+  const source = htmlEscape(req.query.source)
 
   if (username) {
     res.send(`
@@ -61,7 +62,12 @@ app.post('/login', (req, res) => {
   if (req.body.password === actualPassword) {
     const SessionId = randomBytes(16).toString('base64')
     SESSIONS [SessionId] = username 
-    res.cookie('sessionId', SessionId);
+    res.cookie('sessionId', SessionId, {
+      // secure: true,
+      httpOnly: true,
+      sameSite: 'lax',
+      maxAge: 30 * 24 * 60 * 60 * 1000 // 30 days
+    });
     res.redirect('/') 
   } else {
     res.send('failed login')
@@ -71,7 +77,11 @@ app.post('/login', (req, res) => {
 app.get('/logout', (req, res) => {
   const sessionId = req.cookies.sessionId
   delete SESSIONS[sessionId]
-  res.clearCookie('sessionId')
+  res.clearCookie('sessionId', {
+    // secure: true,
+    httpOnly: true,
+    sameSite: 'lax'
+  })
   res.redirect('/')
 })
 
