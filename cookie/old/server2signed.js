@@ -1,13 +1,8 @@
-// cookie is random number
+// cookie is signed
 const express = require('express')
-const cookieParser = require('cookie-parser')
 const { createReadStream } = require('fs')
 const bodyParser = require('body-parser')
-const { randomBytes } = require('crypto')
-
-const app = express()
-app.use(cookieParser())
-app.use(bodyParser.urlencoded({ extended: false }))
+const cookieParser = require('cookie-parser')
 
 const USERS = {
   alice: 'password',
@@ -18,11 +13,14 @@ const BALANCES = {
   bob: 100
 }
 
-const SESSIONS = {} // sessionid -> { username: '', etc}
+const COOKIE_SECRET = "askldksladklasdSKLDsalkdklsafsklagalkLKSLKCA"
+
+const app = express()
+app.use(bodyParser.urlencoded({ extended: false}))
+app.use(cookieParser(COOKIE_SECRET))
 
 app.get('/', (req, res) => {
-	const sessionId = req.cookies.sessionId
-  const username = SESSIONS[sessionId]
+  const username = req.signedCookies.username
   if (username) {
     const balance = BALANCES[username]
     res.send(`Hi ${username}. Your balance is $${balance}`)
@@ -34,20 +32,17 @@ app.get('/', (req, res) => {
 app.post('/login', (req, res) => {
   const username = req.body.username
   const password = USERS[username]
+
   if (req.body.password === password) {
-    const nextSessionId = randomBytes(16).toString('base64')
-		res.cookie('sessionId', nextSessionId)
-		SESSIONS[nextSessionId] = username
-    res.redirect('/')
+    res.cookie('username', username, { signed: true })
+    res.send('logged in!')
   } else {
     res.send('failed login')
   }
 })
 
 app.get('/logout', (req, res) => {
-  const sessionId = req.cookies.sessionId
-  delete SESSIONS[sessionId]
-  res.clearCookie('sessionId')
+  res.clearCookie('username')
   res.redirect('/')
 })
 
