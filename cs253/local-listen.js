@@ -7,6 +7,7 @@ const app = express()
 
 app.get('/', (req, res) => {
   exec(COMMAND, err => {
+    // res.set('Access-Control-Allow-Origin', '*')
     if (err) res.status(500).send(err.stack)
     else res.status(200).send('Success')
   })
