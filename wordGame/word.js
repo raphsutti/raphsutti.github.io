@@ -25,6 +25,8 @@ if (url != null) {
   info.textContent = text;
 }
 
+const answerArray = [];
+const answerBlock = document.querySelector("#displayAnswer");
 
 resultArray = urlParam.toUpperCase().split("");
 resultArray.sort(() => Math.random() - 0.5)
@@ -32,14 +34,38 @@ for (var i = 0; i < resultArray.length; i++) {
   character = resultArray[i];
   squares[i].textContent = character;
   squares[i].classList.add(`box${character}`);
+  squares[i].id = i+character;
+  squares[i].addEventListener("click", function() {
+    const char = this.id.substr(this.id.length - 1)
+
+    if (this.classList.contains("active")) {
+      answerArray.push(char);
+      this.classList.add("grey");
+      this.classList.remove("active");
+
+      if (answerArray.length === 12) {
+        document.querySelector("#yay").textContent = "🎉";
+      }
+
+    } else {
+      const index = answerArray.indexOf(char);
+      if (index > -1) {
+        answerArray.splice(index, 1);
+        this.classList.add("active");
+        this.classList.remove("grey");
+
+      }
+    }
+
+    answerBlock.textContent = answerArray.join("");
+  } );
+  
 }
+
 for (var i = 0; i < resultArray.length; i++) {
   squares[i].classList.add("active");
 }
 
-
-const answerBlock = document.querySelector("#displayAnswer");
-const answerArray = [];
 document.addEventListener("keydown", event => {
   key = event.keyCode;
   char = String.fromCharCode(key);
