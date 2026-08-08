@@ -48,6 +48,42 @@ const MOVIE_WORDS_DATA = [
     emoji: "❄️👑👸🏼☃️🏰👑", 
     meaning: "Let it go, let it go!" 
   },
+  {
+    word: "Shrek",
+    difficulty: "Easy",
+    emoji: "👹🧅🥑🏰👸🏼🐴🪞",
+    meaning: "Ogres are like onions. Onions have layers."
+  },
+  {
+    word: "Cars",
+    difficulty: "Easy",
+    emoji: "🏎️⚡️🌵🛠️🏆🏁🛞",
+    meaning: "I am speed."
+  },
+  {
+    word: "Toy Story",
+    difficulty: "Easy",
+    emoji: "🤠🚀🧸📦🤠🚀🪐",
+    meaning: "To infinity and beyond!"
+  },
+  {
+    word: "Aladdin",
+    difficulty: "Easy",
+    emoji: "🧞‍♂️🪔🐒🕌🪶👸🏽✈️",
+    meaning: "Phenomenal cosmic powers... itty bitty living space."
+  },
+  {
+    word: "The Karate Kid",
+    difficulty: "Easy",
+    emoji: "🥋🕯️🧼🚙🥋🦶🏆",
+    meaning: "Wax on, wax off."
+  },
+  {
+    word: "Star Wars",
+    difficulty: "Easy",
+    emoji: "⚔️🌌🤖🛰️👽👑🚀",
+    meaning: "May the Force be with you."
+  },
 
   // --- Medium ---
   { 
@@ -77,7 +113,6 @@ const MOVIE_WORDS_DATA = [
   { 
     word: "Ghostbusters", 
     difficulty: "Medium", 
-    emoji: "👻🚫🚨🔫🏢 Marshmallow Man 👻🚫", 
     emoji: "👻🚫🚨🔫🏢🛻👻", 
     meaning: "Who ya gonna call?" 
   },
@@ -98,6 +133,42 @@ const MOVIE_WORDS_DATA = [
     difficulty: "Medium", 
     emoji: "🛡️🔨🟩🏹🦾👽🗽", 
     meaning: "Avengers, assemble!" 
+  },
+  {
+    word: "The Terminator",
+    difficulty: "Medium",
+    emoji: "🤖🕶️🏍️💥🏭⌛️🕶️",
+    meaning: "I'll be back."
+  },
+  {
+    word: "The Wizard of Oz",
+    difficulty: "Medium",
+    emoji: "🌪️🐕👠🦁🤖🌾🌈",
+    meaning: "There's no place like home."
+  },
+  {
+    word: "Pirates of the Caribbean",
+    difficulty: "Medium",
+    emoji: "🏴‍☠️🦜🪙⚔️🍷⚓️💀",
+    meaning: "This is the day you will always remember as the day you almost caught Captain Jack Sparrow."
+  },
+  {
+    word: "Men in Black",
+    difficulty: "Medium",
+    emoji: "🕶️💼🔫👽🕶️🛸💥",
+    meaning: "You know the difference between you and me? I make this look good."
+  },
+  {
+    word: "The Dark Knight",
+    difficulty: "Medium",
+    emoji: "🦇🤡🃏🏙️🚔💥💰",
+    meaning: "Why so serious?"
+  },
+  {
+    word: "Fight Club",
+    difficulty: "Medium",
+    emoji: "🧼🧼👔💥🥊🏙️🛌",
+    meaning: "The first rule of Fight Club is: You do not talk about Fight Club."
   },
 
   // --- Hard ---
@@ -148,6 +219,42 @@ const MOVIE_WORDS_DATA = [
     difficulty: "Hard", 
     emoji: "🐀👨‍🍳🧑‍🍳🥖🍷🇫🇷🍲", 
     meaning: "Anyone can cook." 
+  },
+  {
+    word: "Pulp Fiction",
+    difficulty: "Hard",
+    emoji: "🍔💼🕺💃💉🔫📖",
+    meaning: "Say 'what' again. I dare you, I double dare you."
+  },
+  {
+    word: "The Silence of the Lambs",
+    difficulty: "Hard",
+    emoji: "🦋🍷🥩🔍🚔🪰🗝️",
+    meaning: "I ate his liver with some fava beans and a nice Chianti."
+  },
+  {
+    word: "The Truman Show",
+    difficulty: "Hard",
+    emoji: "📺🌊⛵️🚪☁️🎬🧍‍♂️",
+    meaning: "In case I don't see ya, good afternoon, good evening, and good night!"
+  },
+  {
+    word: "The Sixth Sense",
+    difficulty: "Hard",
+    emoji: "👻👦🏻🛋️🩺❄️🚪😱",
+    meaning: "I see dead people."
+  },
+  {
+    word: "Groundhog Day",
+    difficulty: "Hard",
+    emoji: "⏰🦔❄️🎥🔄🌧️📻",
+    meaning: "Well, what if there is no tomorrow? There wasn't one today."
+  },
+  {
+    word: "Apollo 13",
+    difficulty: "Hard",
+    emoji: "🚀🌕💥📟👨‍🚀🇺🇸🌊",
+    meaning: "Houston, we have a problem."
   }
 ];
 
