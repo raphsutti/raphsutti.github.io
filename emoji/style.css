@@ -136,10 +136,19 @@ select {
 }
 
 .btn-secondary {
+  background-color: #9b59b6;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #8e44ad;
+}
+
+.btn-action {
   background-color: #e0e0e0;
   color: #333;
 }
 
-.btn-secondary:hover {
+.btn-action:hover {
   background-color: #d0d0d0;
 }

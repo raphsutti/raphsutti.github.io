@@ -66,19 +66,16 @@ const WORDS_DATA = [
   { word: "Thermometer", difficulty: "Hard", emoji: "🌡️" }
 ];
 
-// Stage Constants: 1 = Hidden, 2 = Hint (First letter revealed), 3 = Full Word revealed
-const STAGE_HIDDEN = 1;
-const STAGE_HINT = 2;
-const STAGE_FULL = 3;
-
-let currentStage = STAGE_HIDDEN;
 let currentWordObj = null;
-let filteredWords = [...WORDS_DATA];
+let revealedIndices = new Set();
+let isPhaseTwo = false;
 
 // DOM Elements
 const emojiDisplay = document.getElementById('emoji-display');
 const wordDisplay = document.getElementById('word-display');
-const actionBtn = document.getElementById('action-btn');
+const revealFirstBtn = document.getElementById('reveal-first-btn');
+const revealRandomBtn = document.getElementById('reveal-random-btn');
+const revealAnswerBtn = document.getElementById('reveal-answer-btn');
 const nextBtn = document.getElementById('next-btn');
 const difficultySelect = document.getElementById('difficulty-select');
 const difficultyBadge = document.getElementById('difficulty-badge');
@@ -102,44 +99,83 @@ function updateBadge(difficulty) {
   difficultyBadge.className = `difficulty-badge ${difficulty.toLowerCase()}`;
 }
 
-function renderStage() {
+function renderWord() {
   const word = currentWordObj.word.toUpperCase();
+  const displayChars = word.split('').map((char, index) => {
+    if (char === ' ') return ' ';
+    return revealedIndices.has(index) ? char : '_';
+  });
 
-  if (currentStage === STAGE_HIDDEN) {
-    wordDisplay.textContent = '';
-    actionBtn.textContent = 'Reveal Hint';
-    actionBtn.style.display = 'block';
-  } else if (currentStage === STAGE_HINT) {
-    const firstLetter = word.charAt(0);
-    const blanks = '_ '.repeat(word.length - 1).trim();
-    wordDisplay.textContent = `${firstLetter} ${blanks}`;
-    actionBtn.textContent = 'Reveal Final Spelling';
-    actionBtn.style.display = 'block';
-  } else if (currentStage === STAGE_FULL) {
-    wordDisplay.textContent = word;
-    actionBtn.style.display = 'none';
+  wordDisplay.textContent = displayChars.join(' ');
+  updateButtonVisibility();
+}
+
+function updateButtonVisibility() {
+  const word = currentWordObj.word.toUpperCase();
+  const hiddenCount = word.split('').filter((char, idx) => char !== ' ' && !revealedIndices.has(idx)).length;
+
+  if (!isPhaseTwo) {
+    // Phase 1
+    revealFirstBtn.style.display = 'block';
+    revealRandomBtn.style.display = 'none';
+    revealAnswerBtn.style.display = 'none';
+    nextBtn.style.display = 'none';
+  } else {
+    // Phase 2
+    revealFirstBtn.style.display = 'none';
+    revealRandomBtn.style.display = hiddenCount > 0 ? 'block' : 'none';
+    revealAnswerBtn.style.display = hiddenCount > 0 ? 'block' : 'none';
+    nextBtn.style.display = 'block';
   }
 }
 
 function loadNextWord() {
   currentWordObj = getRandomWord();
-  currentStage = STAGE_HIDDEN;
+  revealedIndices.clear();
+  isPhaseTwo = false;
+
   emojiDisplay.textContent = currentWordObj.emoji;
   updateBadge(currentWordObj.difficulty);
-  renderStage();
+  renderWord();
 }
 
-function handleActionClick() {
-  if (currentStage === STAGE_HIDDEN) {
-    currentStage = STAGE_HINT;
-  } else if (currentStage === STAGE_HINT) {
-    currentStage = STAGE_FULL;
+function revealFirstLetter() {
+  isPhaseTwo = true;
+  revealedIndices.add(0);
+  renderWord();
+}
+
+function revealRandomLetter() {
+  const word = currentWordObj.word.toUpperCase();
+  const unrevealed = [];
+
+  for (let i = 0; i < word.length; i++) {
+    if (word[i] !== ' ' && !revealedIndices.has(i)) {
+      unrevealed.push(i);
+    }
   }
-  renderStage();
+
+  if (unrevealed.length > 0) {
+    const randomIndex = unrevealed[Math.floor(Math.random() * unrevealed.length)];
+    revealedIndices.add(randomIndex);
+    renderWord();
+  }
+}
+
+function revealFullAnswer() {
+  const word = currentWordObj.word.toUpperCase();
+  for (let i = 0; i < word.length; i++) {
+    if (word[i] !== ' ') {
+      revealedIndices.add(i);
+    }
+  }
+  renderWord();
 }
 
 // Event Listeners
-actionBtn.addEventListener('click', handleActionClick);
+revealFirstBtn.addEventListener('click', revealFirstLetter);
+revealRandomBtn.addEventListener('click', revealRandomLetter);
+revealAnswerBtn.addEventListener('click', revealFullAnswer);
 nextBtn.addEventListener('click', loadNextWord);
 difficultySelect.addEventListener('change', loadNextWord);
 
