@@ -10,7 +10,16 @@
   <div class="game-container">
     <header>
       <h1>Emoji Word Guess</h1>
-      <div class="filter-container">
+      
+      <div class="mode-toggle-container">
+        <label class="switch">
+          <input type="checkbox" id="genz-toggle">
+          <span class="slider round"></span>
+        </label>
+        <span class="toggle-label" id="toggle-label">Gen Z Mode: OFF</span>
+      </div>
+
+      <div class="filter-container" id="filter-container">
         <label for="difficulty-select">Difficulty:</label>
         <select id="difficulty-select">
           <option value="All">All</option>
@@ -21,10 +30,12 @@
       </div>
     </header>
 
-    <main class="card">
+    <main class="card" id="game-card">
       <div class="difficulty-badge" id="difficulty-badge">Easy</div>
       
       <div class="emoji-display" id="emoji-display">✏️</div>
+
+      <div class="meaning-display" id="meaning-display"></div>
 
       <div class="word-display" id="word-display"></div>
 

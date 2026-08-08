@@ -13,6 +13,12 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 20px;
+  transition: background-color 0.3s ease;
+}
+
+body.genz-active {
+  background-color: #2a1b3d;
+  color: #fff;
 }
 
 .game-container {
@@ -22,15 +28,92 @@ body {
 }
 
 header {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
 header h1 {
   font-size: 2rem;
   color: #2c3e50;
-  margin-bottom: 12px;
 }
 
+body.genz-active header h1 {
+  color: #a35dff;
+}
+
+/* Toggle Switch Styles */
+.mode-toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.toggle-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #555;
+}
+
+body.genz-active .toggle-label {
+  color: #e0b0ff;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .3s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .3s;
+}
+
+input:checked + .slider {
+  background-color: #8a2be2;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.slider.round {
+  border-radius: 24px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Filter Styles */
 .filter-container {
   display: flex;
   justify-content: center;
@@ -57,6 +140,12 @@ select {
   flex-direction: column;
   align-items: center;
   position: relative;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.genz-active .card {
+  background: #44315f;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 .difficulty-badge {
@@ -85,24 +174,57 @@ select {
   color: #c5221f;
 }
 
+body.genz-active .difficulty-badge.easy {
+  background-color: #1b4332;
+  color: #74c69d;
+}
+
+body.genz-active .difficulty-badge.medium {
+  background-color: #5c3d11;
+  color: #ffc107;
+}
+
+body.genz-active .difficulty-badge.hard {
+  background-color: #4a1525;
+  color: #ff85a1;
+}
+
 .emoji-display {
-  font-size: 8rem;
+  font-size: 7rem;
   line-height: 1;
-  margin: 20px 0;
+  margin: 16px 0 8px 0;
   user-select: none;
 }
 
+.meaning-display {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #666;
+  min-height: 1.4rem;
+  margin-bottom: 12px;
+}
+
+body.genz-active .meaning-display {
+  color: #d1b3ff;
+}
+
 .word-display {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  letter-spacing: 6px;
+  letter-spacing: 4px;
   color: #2c3e50;
-  min-height: 3rem;
+  min-height: 3.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   text-transform: uppercase;
+  word-break: break-word;
+  padding: 0 8px;
+}
+
+body.genz-active .word-display {
+  color: #fff;
 }
 
 .controls {
@@ -135,6 +257,14 @@ select {
   background-color: #2980b9;
 }
 
+body.genz-active .btn-primary {
+  background-color: #8a2be2;
+}
+
+body.genz-active .btn-primary:hover {
+  background-color: #7209b7;
+}
+
 .btn-secondary {
   background-color: #9b59b6;
   color: white;
@@ -144,6 +274,14 @@ select {
   background-color: #8e44ad;
 }
 
+body.genz-active .btn-secondary {
+  background-color: #f72585;
+}
+
+body.genz-active .btn-secondary:hover {
+  background-color: #b5179e;
+}
+
 .btn-action {
   background-color: #e0e0e0;
   color: #333;
@@ -151,4 +289,13 @@ select {
 
 .btn-action:hover {
   background-color: #d0d0d0;
+}
+
+body.genz-active .btn-action {
+  background-color: #3a2e4c;
+  color: #fff;
+}
+
+body.genz-active .btn-action:hover {
+  background-color: #4a3b60;
 }
