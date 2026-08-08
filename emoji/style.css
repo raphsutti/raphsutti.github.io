@@ -35,13 +35,34 @@ header {
   gap: 12px;
 }
 
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 header h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #2c3e50;
 }
 
 body.genz-active header h1 {
   color: #a35dff;
+}
+
+.score-display {
+  font-size: 1.1rem;
+  font-weight: 700;
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+body.genz-active .score-display {
+  background-color: #8a2be2;
+  color: #fff;
 }
 
 /* Toggle Switch Styles */
@@ -190,7 +211,7 @@ body.genz-active .difficulty-badge.hard {
 }
 
 .emoji-display {
-  font-size: 7rem;
+  font-size: 6.5rem;
   line-height: 1;
   margin: 16px 0 8px 0;
   user-select: none;
@@ -234,9 +255,19 @@ body.genz-active .word-display {
   width: 100%;
 }
 
+.answer-actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.answer-actions .btn {
+  flex: 1;
+}
+
 .btn {
   padding: 14px 20px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   border: none;
   border-radius: 8px;
@@ -298,4 +329,103 @@ body.genz-active .btn-action {
 
 body.genz-active .btn-action:hover {
   background-color: #4a3b60;
+}
+
+.btn-success {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #27ae60;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+}
+
+.btn-danger-outline {
+  background-color: transparent;
+  color: #e74c3c;
+  border: 2px solid #e74c3c;
+}
+
+.btn-danger-outline:hover {
+  background-color: #fadbd8;
+}
+
+body.genz-active .btn-danger-outline {
+  color: #ff6b6b;
+  border-color: #ff6b6b;
+}
+
+body.genz-active .btn-danger-outline:hover {
+  background-color: #4a1525;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  padding: 32px 24px;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+body.genz-active .modal-content {
+  background: #3a2e4c;
+  color: #fff;
+}
+
+.summary-emoji {
+  font-size: 5rem;
+  margin-bottom: 12px;
+}
+
+.summary-score {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 12px 0 4px 0;
+  color: #2c3e50;
+}
+
+body.genz-active .summary-score {
+  color: #a35dff;
+}
+
+.summary-stats {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+body.genz-active .summary-stats {
+  color: #ccc;
+}
+
+.summary-message {
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  font-weight: 600;
 }

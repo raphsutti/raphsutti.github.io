@@ -109,24 +109,48 @@ const GENZ_WORDS_DATA = [
   { word: "Heavy on it", meaning: "Strongly emphasizing or agreeing with a point", difficulty: "Hard", emoji: "🔊" }
 ];
 
+// State Variables
 let currentWordObj = null;
 let revealedIndices = new Set();
 let isPhaseTwo = false;
+let isAnswerRevealed = false;
 let isGenZMode = false;
+
+// Scoring & History Tracking
+let totalScore = 0;
+let currentWordValue = 3; // Starts at 3, min 1
+let wordsPlayedCount = 0;
+let playedWordsHistory = new Set();
+let hasScoredCurrentWord = false;
 
 // DOM Elements
 const emojiDisplay = document.getElementById('emoji-display');
 const wordDisplay = document.getElementById('word-display');
 const meaningDisplay = document.getElementById('meaning-display');
+const scoreDisplay = document.getElementById('score-display');
+
 const revealFirstBtn = document.getElementById('reveal-first-btn');
 const revealRandomBtn = document.getElementById('reveal-random-btn');
 const revealAnswerBtn = document.getElementById('reveal-answer-btn');
+const answerActions = document.getElementById('answer-actions');
+const correctBtn = document.getElementById('correct-btn');
+const wrongBtn = document.getElementById('wrong-btn');
 const nextBtn = document.getElementById('next-btn');
+const endRoundBtn = document.getElementById('end-round-btn');
+
 const difficultySelect = document.getElementById('difficulty-select');
 const filterContainer = document.getElementById('filter-container');
 const difficultyBadge = document.getElementById('difficulty-badge');
 const genzToggle = document.getElementById('genz-toggle');
 const toggleLabel = document.getElementById('toggle-label');
+
+// Modal Elements
+const summaryModal = document.getElementById('summary-modal');
+const summaryEmoji = document.getElementById('summary-emoji');
+const summaryScoreText = document.getElementById('summary-score-text');
+const summaryStatsText = document.getElementById('summary-stats-text');
+const summaryMessage = document.getElementById('summary-message');
+const restartBtn = document.getElementById('restart-btn');
 
 function getActiveDataset() {
   return isGenZMode ? GENZ_WORDS_DATA : STANDARD_WORDS_DATA;
@@ -135,14 +159,27 @@ function getActiveDataset() {
 function getFilteredPool() {
   const activeData = getActiveDataset();
   const selectedDifficulty = difficultySelect.value;
-  if (selectedDifficulty === 'All' || isGenZMode) {
-    return [...activeData];
+  
+  let pool = activeData;
+  if (!isGenZMode && selectedDifficulty !== 'All') {
+    pool = activeData.filter(item => item.difficulty === selectedDifficulty);
   }
-  return activeData.filter(item => item.difficulty === selectedDifficulty);
+
+  // Exclude previously played words
+  const unplayedPool = pool.filter(item => !playedWordsHistory.has(item.word));
+  
+  // Reset pool history if all words in current category have been used
+  if (unplayedPool.length === 0 && pool.length > 0) {
+    playedWordsHistory.clear();
+    return pool;
+  }
+
+  return unplayedPool;
 }
 
 function getRandomWord() {
   const pool = getFilteredPool();
+  if (pool.length === 0) return null;
   const randomIndex = Math.floor(Math.random() * pool.length);
   return pool[randomIndex];
 }
@@ -150,6 +187,31 @@ function getRandomWord() {
 function updateBadge(difficulty) {
   difficultyBadge.textContent = difficulty;
   difficultyBadge.className = `difficulty-badge ${difficulty.toLowerCase()}`;
+}
+
+function updateScoreboard() {
+  scoreDisplay.textContent = `Score: ${totalScore}`;
+}
+
+function deductPoint() {
+  if (currentWordValue > 1) {
+    currentWordValue--;
+  }
+}
+
+function getUnrevealedIndices() {
+  const word = currentWordObj.word.toUpperCase();
+  const unrevealed = [];
+
+  for (let i = 0; i < word.length; i++) {
+    const char = word[i];
+    const isPunctuation = (char === ' ' || char === '"' || char === '\'' || char === '-' || char === '/');
+    if (!isPunctuation && !revealedIndices.has(i)) {
+      unrevealed.push(i);
+    }
+  }
+
+  return unrevealed;
 }
 
 function renderWord() {
@@ -166,32 +228,57 @@ function renderWord() {
 }
 
 function updateButtonVisibility() {
-  const word = currentWordObj.word.toUpperCase();
-  const hiddenCount = word.split('').filter((char, idx) => {
-    const isPunctuation = (char === ' ' || char === '"' || char === '\'' || char === '-' || char === '/');
-    return !isPunctuation && !revealedIndices.has(idx);
-  }).length;
+  const unrevealedCount = getUnrevealedIndices().length;
 
-  // Next Word is always visible
+  // Always visible elements
   nextBtn.style.display = 'block';
+  endRoundBtn.style.display = 'block';
 
-  if (!isPhaseTwo) {
-    // Phase 1
-    revealFirstBtn.style.display = 'block';
+  if (hasScoredCurrentWord) {
+    revealFirstBtn.style.display = 'none';
     revealRandomBtn.style.display = 'none';
     revealAnswerBtn.style.display = 'none';
-  } else {
-    // Phase 2
+    answerActions.style.display = 'none';
+    return;
+  }
+
+  // Hide Reveal Answer button once answer is revealed
+  revealAnswerBtn.style.display = isAnswerRevealed ? 'none' : 'block';
+
+  // Update Reveal button text based on points floor
+  const revealBtnText = currentWordValue > 1 ? "Reveal Letter (-1 point)" : "Reveal Letter";
+  revealFirstBtn.textContent = revealBtnText;
+  revealRandomBtn.textContent = revealBtnText;
+
+  // Dynamic point count on Correct button
+  const ptsLabel = currentWordValue === 1 ? "1 point" : `${currentWordValue} points`;
+  correctBtn.textContent = `Got Correct (+${ptsLabel})`;
+
+  // Answer status buttons show ONLY after "Reveal Answer" is pressed (or auto-triggered)
+  answerActions.style.display = isAnswerRevealed ? 'flex' : 'none';
+
+  if (isAnswerRevealed || unrevealedCount === 0) {
     revealFirstBtn.style.display = 'none';
-    revealRandomBtn.style.display = hiddenCount > 0 ? 'block' : 'none';
-    revealAnswerBtn.style.display = hiddenCount > 0 ? 'block' : 'none';
+    revealRandomBtn.style.display = 'none';
+  } else if (!isPhaseTwo) {
+    revealFirstBtn.style.display = 'block';
+    revealRandomBtn.style.display = 'none';
+  } else {
+    revealFirstBtn.style.display = 'none';
+    revealRandomBtn.style.display = 'block';
   }
 }
 
 function loadNextWord() {
   currentWordObj = getRandomWord();
+  if (!currentWordObj) return;
+
+  playedWordsHistory.add(currentWordObj.word);
   revealedIndices.clear();
   isPhaseTwo = false;
+  isAnswerRevealed = false;
+  currentWordValue = 3;
+  hasScoredCurrentWord = false;
 
   emojiDisplay.textContent = currentWordObj.emoji;
   meaningDisplay.textContent = isGenZMode && currentWordObj.meaning ? `"${currentWordObj.meaning}"` : '';
@@ -201,6 +288,7 @@ function loadNextWord() {
 
 function revealFirstLetter() {
   isPhaseTwo = true;
+  deductPoint();
   const word = currentWordObj.word.toUpperCase();
   
   for (let i = 0; i < word.length; i++) {
@@ -210,34 +298,84 @@ function revealFirstLetter() {
       break;
     }
   }
-  renderWord();
-}
 
-function revealRandomLetter() {
-  const word = currentWordObj.word.toUpperCase();
-  const unrevealed = [];
-
-  for (let i = 0; i < word.length; i++) {
-    const char = word[i];
-    const isPunctuation = (char === ' ' || char === '"' || char === '\'' || char === '-' || char === '/');
-    if (!isPunctuation && !revealedIndices.has(i)) {
-      unrevealed.push(i);
-    }
-  }
-
-  if (unrevealed.length > 0) {
-    const randomIndex = unrevealed[Math.floor(Math.random() * unrevealed.length)];
-    revealedIndices.add(randomIndex);
+  // If revealing this letter completed the word, trigger reveal full answer
+  if (getUnrevealedIndices().length === 0) {
+    revealFullAnswer();
+  } else {
     renderWord();
   }
 }
 
+function revealRandomLetter() {
+  const unrevealed = getUnrevealedIndices();
+
+  if (unrevealed.length > 0) {
+    deductPoint();
+    const randomIndex = unrevealed[Math.floor(Math.random() * unrevealed.length)];
+    revealedIndices.add(randomIndex);
+
+    // If revealing this letter completed the word, trigger reveal full answer
+    if (getUnrevealedIndices().length === 0) {
+      revealFullAnswer();
+    } else {
+      renderWord();
+    }
+  }
+}
+
 function revealFullAnswer() {
+  isAnswerRevealed = true;
   const word = currentWordObj.word.toUpperCase();
   for (let i = 0; i < word.length; i++) {
     revealedIndices.add(i);
   }
   renderWord();
+}
+
+function markAnswer(isCorrect) {
+  if (hasScoredCurrentWord) return;
+
+  if (isCorrect) {
+    totalScore += currentWordValue;
+  }
+  wordsPlayedCount++;
+  hasScoredCurrentWord = true;
+  
+  updateScoreboard();
+  loadNextWord();
+}
+
+function showRoundSummary() {
+  summaryScoreText.textContent = `Total Score: ${totalScore}`;
+  summaryStatsText.textContent = `Played ${wordsPlayedCount} word${wordsPlayedCount === 1 ? '' : 's'}`;
+
+  const avgScore = wordsPlayedCount > 0 ? totalScore / wordsPlayedCount : 0;
+
+  if (wordsPlayedCount === 0) {
+    summaryEmoji.textContent = "🤔";
+    summaryMessage.textContent = "No words played yet!";
+  } else if (avgScore >= 2.5) {
+    summaryEmoji.textContent = isGenZMode ? "🔥" : "🏆";
+    summaryMessage.textContent = isGenZMode ? "Absolute W! You ate and left no crumbs!" : "Outstanding! Flawless knowledge!";
+  } else if (avgScore >= 1.5) {
+    summaryEmoji.textContent = isGenZMode ? "⚡️" : "🌟";
+    summaryMessage.textContent = isGenZMode ? "Valid effort! Clean run." : "Great effort! Solid performance.";
+  } else {
+    summaryEmoji.textContent = isGenZMode ? "💀" : "👍";
+    summaryMessage.textContent = isGenZMode ? "Cooked... better luck next time!" : "Good practice! Keep going!";
+  }
+
+  summaryModal.style.display = 'flex';
+}
+
+function resetGameRound() {
+  totalScore = 0;
+  wordsPlayedCount = 0;
+  playedWordsHistory.clear();
+  summaryModal.style.display = 'none';
+  updateScoreboard();
+  loadNextWord();
 }
 
 function toggleGenZMode(e) {
@@ -253,6 +391,7 @@ function toggleGenZMode(e) {
     filterContainer.style.display = 'flex';
   }
 
+  playedWordsHistory.clear();
   loadNextWord();
 }
 
@@ -260,9 +399,19 @@ function toggleGenZMode(e) {
 revealFirstBtn.addEventListener('click', revealFirstLetter);
 revealRandomBtn.addEventListener('click', revealRandomLetter);
 revealAnswerBtn.addEventListener('click', revealFullAnswer);
+correctBtn.addEventListener('click', () => markAnswer(true));
+wrongBtn.addEventListener('click', () => markAnswer(false));
 nextBtn.addEventListener('click', loadNextWord);
-difficultySelect.addEventListener('change', loadNextWord);
+endRoundBtn.addEventListener('click', showRoundSummary);
+restartBtn.addEventListener('click', resetGameRound);
+
+difficultySelect.addEventListener('change', () => {
+  playedWordsHistory.clear();
+  loadNextWord();
+});
+
 genzToggle.addEventListener('change', toggleGenZMode);
 
 // Initialize Game
+updateScoreboard();
 loadNextWord();

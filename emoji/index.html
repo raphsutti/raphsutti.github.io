@@ -9,7 +9,10 @@
 <body>
   <div class="game-container">
     <header>
-      <h1>Emoji Word Guess</h1>
+      <div class="top-bar">
+        <h1>Emoji Word Guess</h1>
+        <div class="score-display" id="score-display">Score: 0</div>
+      </div>
       
       <div class="mode-toggle-container">
         <label class="switch">
@@ -40,12 +43,31 @@
       <div class="word-display" id="word-display"></div>
 
       <div class="controls" id="controls">
-        <button id="reveal-first-btn" class="btn btn-primary">Reveal First Letter</button>
-        <button id="reveal-random-btn" class="btn btn-secondary">Reveal Another Letter</button>
+        <button id="reveal-first-btn" class="btn btn-secondary">Reveal First Letter (-1 Pt)</button>
+        <button id="reveal-random-btn" class="btn btn-secondary">Reveal Another Letter (-1 Pt)</button>
         <button id="reveal-answer-btn" class="btn btn-primary">Reveal Answer</button>
+        
+        <div class="answer-actions" id="answer-actions" style="display: none;">
+          <button id="correct-btn" class="btn btn-success">Got It Correct! 🎉</button>
+          <button id="wrong-btn" class="btn btn-danger">Got It Wrong ❌</button>
+        </div>
+
         <button id="next-btn" class="btn btn-action">Next Word</button>
+        <button id="end-round-btn" class="btn btn-danger-outline">End Round</button>
       </div>
     </main>
+  </div>
+
+  <!-- End of Round Modal -->
+  <div class="modal-overlay" id="summary-modal" style="display: none;">
+    <div class="modal-content">
+      <div class="summary-emoji" id="summary-emoji">🏆</div>
+      <h2>Round Complete!</h2>
+      <p class="summary-score" id="summary-score-text">Total Score: 0</p>
+      <p class="summary-stats" id="summary-stats-text">Played 0 words</p>
+      <p class="summary-message" id="summary-message">Great job!</p>
+      <button id="restart-btn" class="btn btn-primary">Play Again</button>
+    </div>
   </div>
 
   <script src="script.js"></script>
