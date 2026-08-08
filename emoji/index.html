@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emoji Word Guessing Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <header>
+      <h1>Emoji Word Guess</h1>
+      <div class="filter-container">
+        <label for="difficulty-select">Difficulty:</label>
+        <select id="difficulty-select">
+          <option value="All">All</option>
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
+      </div>
+    </header>
+
+    <main class="card">
+      <div class="difficulty-badge" id="difficulty-badge">Easy</div>
+      
+      <div class="emoji-display" id="emoji-display">🪀</div>
+
+      <div class="word-display" id="word-display"></div>
+
+      <div class="controls">
+        <button id="action-btn" class="btn btn-primary">Reveal Hint</button>
+        <button id="next-btn" class="btn btn-secondary">Next Word</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
