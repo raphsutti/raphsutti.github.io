@@ -156,7 +156,7 @@ function renderWord() {
   const word = currentWordObj.word.toUpperCase();
   const displayChars = word.split('').map((char, index) => {
     if (char === ' ' || char === '"' || char === '\'' || char === '-' || char === '/') {
-      return char; // Non-alphabetic spaces/punctuation stay visible
+      return char;
     }
     return revealedIndices.has(index) ? char : '_';
   });
@@ -172,18 +172,19 @@ function updateButtonVisibility() {
     return !isPunctuation && !revealedIndices.has(idx);
   }).length;
 
+  // Next Word is always visible
+  nextBtn.style.display = 'block';
+
   if (!isPhaseTwo) {
     // Phase 1
     revealFirstBtn.style.display = 'block';
     revealRandomBtn.style.display = 'none';
     revealAnswerBtn.style.display = 'none';
-    nextBtn.style.display = 'none';
   } else {
     // Phase 2
     revealFirstBtn.style.display = 'none';
     revealRandomBtn.style.display = hiddenCount > 0 ? 'block' : 'none';
     revealAnswerBtn.style.display = hiddenCount > 0 ? 'block' : 'none';
-    nextBtn.style.display = 'block';
   }
 }
 
@@ -202,7 +203,6 @@ function revealFirstLetter() {
   isPhaseTwo = true;
   const word = currentWordObj.word.toUpperCase();
   
-  // Find the index of the first actual letter (skipping leading punctuation/spaces if any)
   for (let i = 0; i < word.length; i++) {
     const char = word[i];
     if (char >= 'A' && char <= 'Z') {
