@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Emoji Guessing Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <header>
+      <div class="top-bar">
+        <h1>Security Emoji Guessing Game</h1>
+        <div class="score-display" id="score-display">Score: 0</div>
+      </div>
+
+      <div class="filter-container" id="filter-container">
+        <label for="difficulty-select">Difficulty:</label>
+        <select id="difficulty-select">
+          <option value="All">All</option>
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
+      </div>
+    </header>
+
+    <main class="card" id="game-card">
+      <div class="difficulty-badge" id="difficulty-badge">Easy</div>
+      
+      <div class="emoji-display" id="emoji-display">🔐</div>
+
+      <div class="meaning-display" id="meaning-display"></div>
+
+      <div class="word-display" id="word-display"></div>
+
+      <div class="controls" id="controls">
+        <button id="reveal-quote-btn" class="btn btn-info">Reveal Hint (-2 Pts)</button>
+        <button id="reveal-first-btn" class="btn btn-secondary">Reveal First Letter (-1 Pt)</button>
+        <button id="reveal-random-btn" class="btn btn-secondary">Reveal Another Letter (-1 Pt)</button>
+        <button id="reveal-answer-btn" class="btn btn-primary">Reveal Answer</button>
+        
+        <div class="answer-actions" id="answer-actions" style="display: none;">
+          <button id="correct-btn" class="btn btn-success">Got It Correct! 🎉</button>
+          <button id="wrong-btn" class="btn btn-danger">Got It Wrong ❌</button>
+        </div>
+
+        <button id="next-btn" class="btn btn-action">Next Term</button>
+        <button id="end-round-btn" class="btn btn-danger-outline">End Round</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- End of Round Modal -->
+  <div class="modal-overlay" id="summary-modal" style="display: none;">
+    <div class="modal-content">
+      <div class="summary-emoji" id="summary-emoji">🏆</div>
+      <h2>Round Complete!</h2>
+      <p class="summary-score" id="summary-score-text">Total Score: 0</p>
+      <p class="summary-stats" id="summary-stats-text">Played 0 terms</p>
+      <p class="summary-message" id="summary-message">Great job!</p>
+      <button id="restart-btn" class="btn btn-primary">Play Again</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
